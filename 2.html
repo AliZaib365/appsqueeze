@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appsqueeze - We Bring Your Business Online</title>
+    <!-- Using Poppins for a modern, bold look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Using Font Awesome for the simple icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Core Colors */
+            --color-bg-dark: #0f0028;
+            --color-bg-dark-alt: #1a083d;
+            --color-text-light: #f5f5f5;
+            --color-text-dim: #b0a7c4;
+
+            /* Accent Gradient */
+            --gradient-main: linear-gradient(90deg, #e81f88, #9a42f5);
+            --gradient-cta: linear-gradient(135deg, #a750ff, #5f15ff);
+
+            /* Typography */
+            --font-family: 'Poppins', sans-serif;
+            --header-weight: 800;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-family);
+            background: var(--color-bg-dark);
+            color: var(--color-text-light);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            min-height: 150vh; /* Increased height to allow scrolling for navbar test */
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* --- Background Effects (Subtle Glow) --- */
+        .background-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-sphere {
+            position: absolute;
+            filter: blur(120px);
+            opacity: 0.4;
+            border-radius: 50%;
+            animation: pulse-glow 8s infinite alternate;
+        }
+
+        .glow-sphere:nth-child(1) {
+            background-color: #6a1b9a;
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            left: 10%;
+        }
+
+        .glow-sphere:nth-child(2) {
+            background-color: #d81b60;
+            width: 400px;
+            height: 400px;
+            bottom: 5%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse-glow {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.15);
+            }
+        }
+
+        /* --- Navbar Styles (Fixed and Shrinking) --- */
+        .navbar-container {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            /* Ensures the navbar sits above the main content */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            /* Initial background is transparent dark */
+            background: rgba(15, 0, 40, 0.9); 
+            border-radius: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar.scrolled {
+            padding: 12px 40px; /* Smaller vertical padding */
+            /* Full rounded corners on desktop when scrolled */
+            border-radius: 0 0 50px 50px; 
+            background: rgba(15, 0, 40, 0.98); /* Slightly darker on scroll */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--color-text-light);
+            font-size: 24px;
+            font-weight: 700;
+            transition: font-size 0.3s;
+        }
+
+        .navbar.scrolled .logo {
+            font-size: 20px; /* Slightly smaller logo when scrolled */
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            width: 30px;
+            height: 30px;
+            background: var(--gradient-main);
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M352 256c0-44.11-35.89-80-80-80s-80 35.89-80 80 35.89 80 80 80 80-35.89 80-80zm160-256H0v512h512V0zm-176 432c-32 32-64 64-112 64s-80-32-112-64l-32-32V320h256v80l-32 32zM32 32h448v160h-448V32z'/%3E%3C/svg%3E") no-repeat center / contain;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M352 256c0-44.11-35.89-80-80-80s-80 35.89-80 80 35.89 80 80 80 80-35.89 80-80zm160-256H0v512h512V0zm-176 432c-32 32-64 64-112 64s-80-32-112-64l-32-32V320h256v80l-32 32zM32 32h448v160h-448V32z'/%3E%3C/svg%3E") no-repeat center / contain;
+            transition: all 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text-dim);
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text-light);
+        }
+
+        .cta-nav {
+            background: var(--gradient-main);
+            color: var(--color-text-light);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(232, 31, 136, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s, padding 0.3s;
+        }
+        
+        .navbar.scrolled .cta-nav {
+            padding: 8px 16px; /* Smaller CTA button when scrolled */
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(232, 31, 136, 0.6);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--color-text-dim);
+            color: var(--color-text-dim);
+            font-size: 20px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+
+        .menu-toggle:hover {
+            border-color: var(--color-text-light);
+            color: var(--color-text-light);
+        }
+        
+        /* --- Sidebar & Overlay Styles (Unchanged) --- */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100%;
+            background-color: var(--color-bg-dark);
+            z-index: 1000;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .sidebar-links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: color 0.2s;
+        }
+        
+        .sidebar-links a:hover {
+            color: #9a42f5;
+        }
+
+        .cta-sidebar {
+            margin-top: 20px;
+            text-align: center;
+            background: var(--gradient-main);
+            padding: 12px 20px !important;
+            border-radius: 8px;
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(232, 31, 136, 0.4);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--color-text-light);
+            font-size: 30px;
+            cursor: pointer;
+            padding: 5px;
+            line-height: 1;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        /* --- Hero Section Styles --- */
+        .hero {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 150px; /* Added top padding to account for fixed navbar */
+            position: relative;
+            z-index: 1;
+            min-height: 80vh; /* Ensure hero section is tall enough */
+        }
+
+        .hero-title {
+            font-size: 68px;
+            font-weight: var(--header-weight);
+            line-height: 1.1;
+            margin: 0 0 20px;
+            max-width: 900px;
+        }
+
+        .hero-title strong {
+            /* Text gradient for the word 'business' */
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            color: var(--color-text-dim);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-main {
+            background: var(--gradient-cta);
+            color: var(--color-text-light);
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(95, 21, 255, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(95, 21, 255, 0.7);
+        }
+
+        /* --- Custom Animation Classes for Fade-In/Slide-Up --- */
+
+        /* Targets all primary content elements */
+        .hero-title, .hero-description, .cta-main {
+            opacity: 0; 
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        
+        /* Staggered animation on entry */
+        .hero-title.in-view { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .hero-description.in-view { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .cta-main.in-view { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+
+
+        /* --- Floating Icon and Text Elements (Float Animation) --- */
+        .floating-element {
+            position: absolute;
+            z-index: 0;
+            opacity: 0; /* Initial state: hidden */
+            transition: opacity 1.5s ease-in-out; /* Fade in when in view */
+            will-change: transform, opacity;
+        }
+
+        .floating-element.in-view {
+            opacity: 1;
+            /* Enhanced animation: combines float, rotation, and slight scaling */
+            animation: float 10s ease-in-out infinite alternate;
+        }
+        
+        /* Delaying the appearance of the floating elements for extra effect */
+        .floating-element:nth-child(1).in-view { animation-delay: 0s; transition-delay: 0.2s; }
+        .floating-element:nth-child(2).in-view { animation-delay: 1.5s; transition-delay: 0.5s; }
+        .floating-element:nth-child(3).in-view { animation-delay: 3s; transition-delay: 0.8s; }
+        .floating-element:nth-child(4).in-view { animation-delay: 4.5s; transition-delay: 1.1s; }
+
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-bg-dark-alt);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transform-origin: center;
+            transition: transform 0.5s;
+        }
+
+        .icon-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .icon-box i {
+            font-size: 32px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Text Callouts */
+        .text-callout {
+            background-color: var(--color-bg-dark-alt);
+            color: #ff9900;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: rotate(-10deg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-callout.css {
+            color: #00bcd4;
+            transform: rotate(10deg);
+        }
+
+        /* Animation Keyframes */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+            100% { transform: translateY(0px) rotate(-5deg) scale(1); }
+        }
+
+        /* --- Dummy Section for Scrolling Demo --- */
+        .scroll-demo-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: var(--color-bg-dark-alt);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .scroll-demo-section h2 {
+            font-size: 40px;
+            background: var(--gradient-cta);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .scroll-demo-section h2.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+
+        /* --- Media Queries for Responsiveness and Mobile Sidebar --- */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 50px;
+            }
+            .floating-element {
+                /* Hide floating elements on smaller screens to prevent clutter */
+                display: none;
+            }
+            .navbar.scrolled {
+                border-radius: 0; /* No rounding on top edges of navbar on mobile */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 20px;
+            }
+            .navbar.scrolled {
+                padding: 12px 20px;
+            }
+            .nav-links {
+                display: none; /* Hide desktop links */
+            }
+            .cta-nav {
+                display: none; /* Hide desktop CTA */
+            }
+            .menu-toggle {
+                display: block; /* Show hamburger button */
+            }
+            .hero {
+                padding-top: 100px;
+            }
+            .hero-title {
+                font-size: 40px;
+            }
+            .hero-description {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Glow/Gradients -->
+    <div class="background-glow">
+        <div class="glow-sphere"></div>
+        <div class="glow-sphere"></div>
+    </div>
+
+    <!-- Floating Icon/Text Elements (Data-animate for Intersection Observer) -->
+    <div class="floating-element" data-animate style="top: 15%; left: 15%; transform: rotate(-15deg);">
+        <div class="icon-box">
+            <i class="fas fa-spider"></i> <!-- Bug icon -->
+        </div>
+    </div>
+  <div class="floating-element" style="bottom: 25%; left: 20%; animation-delay: 3s; transform: rotate(-8deg);">
+        <div class="text-callout">Appsqueeze dev</div>
+    </div>
+    <div class="floating-element" data-animate style="top: 20%; right: 15%; transform: rotate(10deg);">
+        <div class="icon-box">
+            <i class="fas fa-code"></i> <!-- Code icon -->
+        </div>
+    </div>
+
+    <div class="floating-element" data-animate style="bottom: 25%; left: 20%; transform: rotate(-8deg);">
+        <div class="text-callout">Appsqueeze dev</div>
+    </div>
+
+    <div class="floating-element" data-animate style="bottom: 20%; right: 20%; transform: rotate(15deg);">
+        <div class="icon-box" style="margin-bottom: 10px; transform: rotate(-5deg);">
+            <i class="fab fa-css3-alt"></i> <!-- CSS Icon -->
+        </div>
+        <div class="text-callout css">Appsqueeze dev</div>
+    </div>
+    
+    <!-- Navbar Container (Fixed position) -->
+    <div class="navbar-container">
+        <header class="navbar" id="navbar">
+            <a href="#" class="logo">
+                <div class="logo-icon" aria-hidden="true"></div>
+                Appsqueeze
+            </a>
+            <nav class="nav-links">
+                <a href="#">Our Service</a>
+                <a href="#">Why Choose Us</a>
+                <a href="#">Our Clients</a>
+                <a href="#">Testimonials</a>
+            </nav>
+            <a href="#" class="cta-nav">Start a Project?</a>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" aria-label="Open menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+    </div>
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" aria-label="Close menu">&times;</button>
+        <nav class="sidebar-links">
+            <a href="#">Our Service</a>
+            <a href="#">Why Choose Us</a>
+            <a href="#">Our Clients</a>
+            <a href="#">Testimonials</a>
+            <a href="#" class="cta-sidebar">Start a Project?</a>
+        </nav>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <!-- Hero Content (Data-animate used for staggering) -->
+    <section class="hero">
+        <h1 class="hero-title" data-animate-stagger="1">
+            We bring your <strong>business</strong> to online
+        </h1>
+        <p class="hero-description" data-animate-stagger="2">
+            Partner with us to leverage the latest technologies and stay ahead
+            in the ever-evolving digital landscape.
+        </p>
+        <a href="#" class="cta-main" data-animate-stagger="3">Start Your Project</a>
+    </section>
+
+    <!-- Dummy Scroll Section to demonstrate fixed/shrinking navbar -->
+    <section class="scroll-demo-section">
+    </section>
+
+    <!-- Off-Canvas Sidebar -->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const closeBtn = document.querySelector('.close-btn');
+            const body = document.body;
+            const navbar = document.getElementById('navbar');
+
+            // --- 1. Mobile Sidebar Logic ---
+
+            const openMenu = () => {
+                sidebar.classList.add('open');
+                overlay.classList.add('open');
+                body.style.overflow = 'hidden'; // Prevent scrolling background
+            };
+
+            const closeMenu = () => {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('open');
+                body.style.overflow = ''; // Restore scrolling
+            };
+
+            menuToggle.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+
+            document.querySelectorAll('.sidebar-links a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // --- 2. Navbar Shrink/Sticky Scroll Animation ---
+
+            const scrollHandler = () => {
+                // Check if user has scrolled more than 50 pixels
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            };
+
+            window.addEventListener('scroll', scrollHandler);
+
+            // Trigger the handler once on load in case the page loads scrolled down
+            scrollHandler();
+
+
+            // --- 3. Intersection Observer for Content Fade-In/Slide-Up ---
+            
+            // Elements with simple fade-in/staggered slide-up
+            const targetsStaggered = document.querySelectorAll('[data-animate-stagger]');
+            // Floating elements with complex float animation
+            const targetsFloating = document.querySelectorAll('.floating-element[data-animate]');
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        
+                        // Check if it's a staggered hero element or demo section heading
+                        if (target.hasAttribute('data-animate-stagger')) {
+                            // Apply 'in-view' class to trigger the CSS transition
+                            target.classList.add('in-view'); 
+                        }
+                        
+                        // Check if it's a floating element
+                        if (target.classList.contains('floating-element')) {
+                            // Apply 'in-view' class to trigger opacity and start @keyframes animation
+                            target.classList.add('in-view'); 
+                        }
+                        
+                        // Stop observing once the element is visible
+                        observer.unobserve(target);
+                    }
+                });
+            };
+
+            // Set up the observer
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of element visible
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Observe the staggered elements
+            targetsStaggered.forEach(target => {
+                // Use a short timeout to ensure the DOM is fully painted before observing the first element
+                setTimeout(() => {
+                    observer.observe(target);
+                }, 100); 
+            });
+
+            // Observe the floating elements
+            targetsFloating.forEach(target => {
+                observer.observe(target);
+            });
+        });
+    </script>
+</body>
+
+</html>
