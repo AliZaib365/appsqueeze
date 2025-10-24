@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appsqueeze - We Bring Your Business Online</title>
     <!-- Using Poppins for a modern, bold look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
     <!-- Using Font Awesome for the simple icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -41,9 +42,9 @@
             position: relative;
         }
 
-        /* --- Background Effects (Enhanced) --- */
+        /* --- Background Effects (Subtle Glow) --- */
         .background-glow {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -81,12 +82,13 @@
             from {
                 transform: scale(1);
             }
+
             to {
                 transform: scale(1.15);
             }
         }
 
-        /* --- Navbar Styles (Enhanced) --- */
+        /* --- Navbar Styles (Fixed and Shrinking) --- */
         .navbar-container {
             width: 100%;
             position: fixed;
@@ -96,7 +98,7 @@
 
         .navbar {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             padding: 20px 40px;
             max-width: 1400px;
@@ -105,12 +107,12 @@
             background: rgba(15, 0, 40, 0.9);
             border-radius: 0;
             transition: all 0.3s ease-in-out;
-            backdrop-filter: blur(10px);
         }
 
         .navbar.scrolled {
-            padding: 12px 40px;
-            border-radius: 0 0 50px 50px;
+            margin-top: 20px;
+            padding: 20px 40px;
+            border-radius: 1000px;
             background: rgba(15, 0, 40, 0.98);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
@@ -122,11 +124,7 @@
             color: var(--color-text-light);
             font-size: 24px;
             font-weight: 700;
-            transition: font-size 0.3s, transform 0.3s;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
+            transition: font-size 0.3s;
         }
 
         .navbar.scrolled .logo {
@@ -145,35 +143,18 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 15px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--color-text-dim);
             font-size: 16px;
-            transition: color 0.2s, transform 0.2s;
-            position: relative;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
             color: var(--color-text-light);
-            transform: translateY(-2px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-main);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         .cta-nav {
@@ -186,7 +167,7 @@
             box-shadow: 0 4px 15px rgba(232, 31, 136, 0.4);
             transition: transform 0.2s, box-shadow 0.2s, padding 0.3s;
         }
-        
+
         .navbar.scrolled .cta-nav {
             padding: 8px 16px;
         }
@@ -213,7 +194,7 @@
             border-color: var(--color-text-light);
             color: var(--color-text-light);
         }
-        
+
         /* --- Sidebar & Overlay Styles --- */
         .sidebar {
             position: fixed;
@@ -248,12 +229,11 @@
             font-weight: 600;
             padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: color 0.2s, transform 0.2s;
+            transition: color 0.2s;
         }
-        
+
         .sidebar-links a:hover {
             color: #9a42f5;
-            transform: translateX(5px);
         }
 
         .cta-sidebar {
@@ -277,13 +257,8 @@
             cursor: pointer;
             padding: 5px;
             line-height: 1;
-            transition: transform 0.3s;
         }
-        
-        .close-btn:hover {
-            transform: rotate(90deg);
-        }
-        
+
         .overlay {
             position: fixed;
             top: 0;
@@ -302,7 +277,7 @@
             opacity: 1;
         }
 
-        /* --- Hero Section Styles (Enhanced) --- */
+        /* --- Hero Section Styles --- */
         .hero {
             flex-grow: 1;
             display: flex;
@@ -310,7 +285,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 150px;
+            padding: 120px 20px 80px;
             position: relative;
             z-index: 1;
             min-height: 80vh;
@@ -322,14 +297,6 @@
             line-height: 1.1;
             margin: 0 0 20px;
             max-width: 900px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .hero-title.in-view {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .hero-title strong {
@@ -337,26 +304,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 900;
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-title strong::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-main);
-            border-radius: 2px;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.8s ease-out 0.5s;
-        }
-
-        .hero-title.in-view strong::after {
-            transform: scaleX(1);
         }
 
         .hero-description {
@@ -364,14 +311,6 @@
             color: var(--color-text-dim);
             max-width: 700px;
             margin: 0 auto 40px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .hero-description.in-view {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .cta-main {
@@ -383,24 +322,43 @@
             font-size: 20px;
             font-weight: 700;
             box-shadow: 0 10px 30px rgba(95, 21, 255, 0.5);
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .cta-main.in-view {
-            opacity: 1;
-            transform: translateY(0);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-main:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(95, 21, 255, 0.7);
-            background: linear-gradient(135deg, #9a42f5, #5f15ff);
         }
 
-        /* --- Floating Icon and Text Elements (Enhanced) --- */
+        /* --- Custom Animation Classes for Fade-In/Slide-Up --- */
+        .hero-title,
+        .hero-description,
+        .cta-main {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .hero-title.in-view {
+            transition-delay: 0.1s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-description.in-view {
+            transition-delay: 0.3s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cta-main.in-view {
+            transition-delay: 0.5s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Floating Icon and Text Elements --- */
         .floating-element {
             position: absolute;
             z-index: 0;
@@ -413,11 +371,26 @@
             opacity: 1;
             animation: float 10s ease-in-out infinite alternate;
         }
-        
-        .floating-element:nth-child(1).in-view { animation-delay: 0s; transition-delay: 0.2s; }
-        .floating-element:nth-child(2).in-view { animation-delay: 1.5s; transition-delay: 0.5s; }
-        .floating-element:nth-child(3).in-view { animation-delay: 3s; transition-delay: 0.8s; }
-        .floating-element:nth-child(4).in-view { animation-delay: 4.5s; transition-delay: 1.1s; }
+
+        .floating-element:nth-child(1).in-view {
+            animation-delay: 0s;
+            transition-delay: 0.2s;
+        }
+
+        .floating-element:nth-child(2).in-view {
+            animation-delay: 1.5s;
+            transition-delay: 0.5s;
+        }
+
+        .floating-element:nth-child(3).in-view {
+            animation-delay: 3s;
+            transition-delay: 0.8s;
+        }
+
+        .floating-element:nth-child(4).in-view {
+            animation-delay: 4.5s;
+            transition-delay: 1.1s;
+        }
 
         .icon-box {
             width: 80px;
@@ -430,12 +403,11 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transform-origin: center;
-            transition: transform 0.5s, box-shadow 0.5s;
+            transition: transform 0.5s;
         }
 
         .icon-box:hover {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
         }
 
         .icon-box i {
@@ -458,12 +430,6 @@
             position: relative;
             transform: rotate(-10deg);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .text-callout:hover {
-            transform: rotate(0deg) scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
         .text-callout.css {
@@ -471,28 +437,35 @@
             transform: rotate(10deg);
         }
 
-        .text-callout.css:hover {
-            transform: rotate(0deg) scale(1.05);
-        }
-
         /* Animation Keyframes */
         @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg) scale(1); }
-            50% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
-            100% { transform: translateY(0px) rotate(-5deg) scale(1); }
+            0% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg) scale(1.05);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(-5deg) scale(1);
+            }
         }
 
-        /* --- Dashboard Section Styles --- */
+        /* --- Dashboard Section --- */
         .section-dashboard {
             display: flex;
             justify-content: center;
             align-items: flex-start;
             gap: 38px;
-            padding: 80px 0 30px 0;
-            min-height: 80vh;
+            padding: 80px 20px 100px;
             position: relative;
+            z-index: 1;
+            background: var(--color-bg-dark-alt);
+            border-radius: 40px 40px 0 0;
+            margin-top: -40px;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(50px);
             transition: opacity 1s ease-out, transform 1s ease-out;
         }
 
@@ -505,23 +478,32 @@
             display: flex;
             flex-direction: column;
             gap: 28px;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section-dashboard.in-view .dashboard-left {
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 0.2s;
         }
 
         .card {
-            background: rgba(22,24,40,0.98);
+            background: rgba(22, 24, 40, 0.98);
             border-radius: 20px;
             box-shadow: 0 4px 38px rgba(124, 39, 206, 0.25);
             padding: 26px 24px 22px 24px;
             min-width: 260px;
             margin-bottom: 0;
-            border: 1px solid rgba(120,120,170,0.11);
+            border: 1px solid rgba(120, 120, 170, 0.11);
             backdrop-filter: blur(1.5px);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 45px rgba(124, 39, 206, 0.4);
+            box-shadow: 0 8px 38px rgba(124, 39, 206, 0.4);
         }
 
         .card .card-title {
@@ -565,12 +547,6 @@
             padding: 7px 12px;
             margin-right: 8px;
             font-size: 1rem;
-            transition: background 0.3s;
-        }
-
-        .card select:hover,
-        .card input[type="number"]:hover {
-            background: #333;
         }
 
         .card input[type="number"] {
@@ -592,13 +568,12 @@
             font-size: 1rem;
             cursor: pointer;
             opacity: 0.7;
-            transition: background 0.18s, opacity 0.18s, transform 0.18s;
+            transition: background 0.18s, opacity 0.18s;
         }
 
         .card-controls button:hover {
             background: #7c27ce;
             opacity: 1;
-            transform: scale(1.05);
         }
 
         .card.statistics {
@@ -627,15 +602,24 @@
             align-items: center;
             gap: 22px;
             min-width: 340px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section-dashboard.in-view .dashboard-center {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
         }
 
         .main-dashboard-card {
-            background: rgba(22,24,40,0.98);
+            background: rgba(22, 24, 40, 0.98);
             border-radius: 20px;
             box-shadow: 0 4px 38px rgba(124, 39, 206, 0.25);
             padding: 0;
             margin-bottom: 0;
-            border: 1px solid rgba(120,120,170,0.11);
+            border: 1px solid rgba(120, 120, 170, 0.11);
             width: 380px;
             height: 540px;
             overflow: hidden;
@@ -647,8 +631,8 @@
         }
 
         .main-dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 45px rgba(124, 39, 206, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 8px 38px rgba(124, 39, 206, 0.4);
         }
 
         .main-dashboard-img {
@@ -657,162 +641,183 @@
             object-fit: cover;
             display: block;
             border-radius: 20px;
-            transition: transform 0.5s;
-        }
-
-        .main-dashboard-card:hover .main-dashboard-img {
-            transform: scale(1.05);
         }
 
         /* Right side cards */
-        .dashboard-right {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            min-width: 330px;
-        }
-
-        .code-card, .terminal-card {
-            background: rgba(22,24,40,0.98);
-            border-radius: 20px;
-            box-shadow: 0 4px 38px rgba(124, 39, 206, 0.25);
-            padding: 22px 18px;
-            border: 1px solid rgba(120,120,170,0.11);
-            font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
-            font-size: 1rem;
-            color: #fff;
-            white-space: pre-line;
-            overflow-x: auto;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .code-card:hover, .terminal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 45px rgba(124, 39, 206, 0.4);
-        }
-
-        .code-card {
-            min-height: 200px;
-            max-width: 390px;
-            background: linear-gradient(135deg, #1c1938 0%, #181a2a 100%);
-            color: #e3e8fb;
-            font-size: 1.02rem;
-        }
-
-        .code-keyword { color: #ff53c1; }
-        .code-func { color: #f3e149; }
-        .code-string { color: #7c27ce; }
-        .code-comment { color: #a3a3a3; }
-        .code-var { color: #38d6b8; }
-        .code-num { color: #f3e149; }
-        .terminal-card {
-            max-width: 390px;
-            min-height: 70px;
-            background: linear-gradient(135deg, #1c1938 0%, #181a2a 100%);
-            color: #f3e149;
-            font-size: 0.97rem;
-            border-radius: 20px;
-            margin-top: 10px;
-        }
-
-        .terminal-caret {
-            color: #fff;
-            font-weight: bold;
-            margin-right: 6px;
-        }
+       .dashboard-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      min-width: 330px;
+    }
+    .code-card, .terminal-card {
+      background: rgba(22,24,40,0.98);
+      border-radius: 20px;
+      box-shadow: 0 4px 38px #7c27ce40;
+      padding: 22px 18px;
+      border: 1px solid rgba(120,120,170,0.11);
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+      font-size: 1rem;
+      color: #fff;
+      white-space: pre-line;
+      overflow-x: auto;
+    }
+    .code-card {
+      min-height: 200px;
+      max-width: 390px;
+      background: linear-gradient(135deg, #1c1938 0%, #181a2a 100%);
+      color: #e3e8fb;
+      font-size: 1.02rem;
+    }
+    .code-keyword { color: #ff53c1; }
+    .code-func { color: #f3e149; }
+    .code-string { color: #7c27ce; }
+    .code-comment { color: #a3a3a3; }
+    .code-var { color: #38d6b8; }
+    .code-num { color: #f3e149; }
+    .terminal-card {
+      max-width: 390px;
+      min-height: 70px;
+      background: linear-gradient(135deg, #1c1938 0%, #181a2a 100%);
+      color: #f3e149;
+      font-size: 0.97rem;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+    .terminal-caret {
+      color: #fff;
+      font-weight: bold;
+      margin-right: 6px;
+    }
 
         /* --- Media Queries for Responsiveness --- */
         @media (max-width: 1200px) {
             .section-dashboard {
                 gap: 20px;
             }
-            .main-dashboard-card { width: 300px; height: 420px; }
+
+            .main-dashboard-card {
+                width: 300px;
+                height: 420px;
+            }
         }
 
         @media (max-width: 1024px) {
             .hero-title {
                 font-size: 50px;
             }
+
             .floating-element {
                 display: none;
             }
+
             .navbar.scrolled {
                 border-radius: 0;
             }
-        }
 
-        @media (max-width: 900px) {
             .section-dashboard {
                 flex-direction: column;
                 align-items: center;
-                gap: 18px;
-                padding: 38px 0 24px 0;
+                gap: 30px;
+                padding: 60px 20px 80px;
             }
-            .dashboard-left, .dashboard-right {
+
+            .dashboard-left,
+            .dashboard-right {
                 flex-direction: row;
-                gap: 12px;
+                gap: 20px;
             }
-            .dashboard-left .card, .dashboard-right .code-card, .dashboard-right .terminal-card {
-                min-width: 180px;
-                max-width: 220px;
+
+            .dashboard-left .card,
+            .dashboard-right .code-card,
+            .dashboard-right .terminal-card {
+                min-width: 200px;
+                max-width: 250px;
                 font-size: 0.9rem;
             }
-            .main-dashboard-card { width: 220px; height: 320px; }
+
+            .main-dashboard-card {
+                width: 350px;
+                height: 450px;
+            }
         }
 
         @media (max-width: 768px) {
             .navbar {
+                justify-content: space-around;
                 padding: 20px;
             }
+
             .navbar.scrolled {
                 padding: 12px 20px;
             }
+
             .nav-links {
                 display: none;
             }
+
             .cta-nav {
                 display: none;
             }
+
             .menu-toggle {
                 display: block;
             }
+
             .hero {
                 padding-top: 100px;
             }
+
             .hero-title {
                 font-size: 40px;
             }
+
             .hero-description {
                 font-size: 16px;
             }
-        }
 
-        @media (max-width: 600px) {
             .section-dashboard {
-                padding: 12px 0 8px 0;
+                padding: 40px 20px 60px;
             }
-            .main-dashboard-card { width: 130px; height: 180px; }
-            .dashboard-left .card, .dashboard-right .code-card, .dashboard-right .terminal-card {
-                min-width: 90px;
-                max-width: 120px;
-                font-size: 0.7rem;
+
+            .dashboard-left,
+            .dashboard-right {
+                flex-direction: column;
+                align-items: center;
             }
-            .stats-bar-chart { max-width: 80px; height: 34px; }
-            .spacing-visual { max-width: 80px; }
+
+            .dashboard-left .card,
+            .dashboard-right .code-card,
+            .dashboard-right .terminal-card {
+                min-width: 280px;
+                max-width: 320px;
+            }
+
+            .main-dashboard-card {
+                width: 320px;
+                height: 400px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero-title {
                 font-size: 32px;
             }
-            .dashboard-left, .dashboard-right {
-                flex-direction: column;
-                align-items: center;
+
+            .section-dashboard {
+                padding: 30px 15px 50px;
             }
-            .dashboard-left .card, .dashboard-right .code-card, .dashboard-right .terminal-card {
+
+            .main-dashboard-card {
+                width: 280px;
+                height: 350px;
+            }
+
+            .dashboard-left .card,
+            .dashboard-right .code-card,
+            .dashboard-right .terminal-card {
                 min-width: 250px;
-                max-width: 300px;
-                font-size: 0.9rem;
+                max-width: 280px;
             }
         }
     </style>
@@ -831,21 +836,24 @@
             <i class="fas fa-spider"></i>
         </div>
     </div>
+    <div class="floating-element" data-animate style="bottom: 25%; left: 20%; transform: rotate(-8deg);">
+        <div class="text-callout">Appsqueeze dev</div>
+    </div>
     <div class="floating-element" data-animate style="top: 20%; right: 15%; transform: rotate(10deg);">
         <div class="icon-box">
             <i class="fas fa-code"></i>
         </div>
     </div>
-    <div class="floating-element" data-animate style="bottom: 25%; left: 20%; transform: rotate(-8deg);">
+    <div class="floating-element" data-animate style="bottom: 65%; left: 20%; transform: rotate(-8deg);">
         <div class="text-callout">Appsqueeze dev</div>
     </div>
-    <div class="floating-element" data-animate style="bottom: 20%; right: 20%; transform: rotate(15deg);">
+    <div class="floating-element" data-animate style="bottom: 60%; right: 20%; transform: rotate(15deg);">
         <div class="icon-box" style="margin-bottom: 10px; transform: rotate(-5deg);">
             <i class="fab fa-css3-alt"></i>
         </div>
         <div class="text-callout css">Appsqueeze dev</div>
     </div>
-    
+
     <!-- Navbar Container -->
     <div class="navbar-container">
         <header class="navbar" id="navbar">
@@ -854,19 +862,18 @@
                 Appsqueeze
             </a>
             <nav class="nav-links">
-                <a href="#">Our Service</a>
-                <a href="#">Why Choose Us</a>
-                <a href="#">Our Clients</a>
-                <a href="#">Testimonials</a>
+                <a href="#">Home</a>
+                <a href="#">About us</a>
+                <a href="#">Services</a>
+                <a href="#">Contact Us</a>
             </nav>
             <a href="#" class="cta-nav">Start a Project?</a>
-            <!-- Mobile Menu Toggle Button -->
             <button class="menu-toggle" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
             </button>
         </header>
     </div>
-    
+
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <button class="close-btn" aria-label="Close menu">&times;</button>
@@ -879,7 +886,7 @@
         </nav>
     </div>
     <div class="overlay" id="overlay"></div>
-    
+
     <!-- Hero Content -->
     <section class="hero">
         <h1 class="hero-title" data-animate-stagger="1">
@@ -893,19 +900,25 @@
     </section>
 
     <!-- Dashboard Section -->
-    <section class="section-dashboard" data-animate>
+    <section class="section-dashboard" id="dashboard-section">
         <!-- Left column -->
         <div class="dashboard-left">
             <div class="card">
                 <div class="card-title">Spacing</div>
                 <div class="spacing-visual">
                     <svg class="spacing-visual-svg" viewBox="0 0 160 65">
-                        <rect x="25" y="15" width="110" height="35" rx="7" fill="#191a2d" stroke="#7c27ce" stroke-width="2"/>
-                        <text x="80" y="38" font-size="14" fill="#7c27ce" text-anchor="middle" font-family="Inter">8</text>
-                        <text x="18" y="38" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
-                        <text x="142" y="38" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
-                        <text x="80" y="12" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
-                        <text x="80" y="62" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
+                        <rect x="25" y="15" width="110" height="35" rx="7" fill="#191a2d" stroke="#7c27ce"
+                            stroke-width="2" />
+                        <text x="80" y="38" font-size="14" fill="#7c27ce" text-anchor="middle"
+                            font-family="Inter">8</text>
+                        <text x="18" y="38" font-size="11" fill="#7c27ce" text-anchor="middle"
+                            font-family="Inter">20</text>
+                        <text x="142" y="38" font-size="11" fill="#7c27ce" text-anchor="middle"
+                            font-family="Inter">20</text>
+                        <text x="80" y="12" font-size="11" fill="#7c27ce" text-anchor="middle"
+                            font-family="Inter">20</text>
+                        <text x="80" y="62" font-size="11" fill="#7c27ce" text-anchor="middle"
+                            font-family="Inter">20</text>
                     </svg>
                 </div>
                 <div class="card-subtitle">Typography</div>
@@ -934,11 +947,11 @@
             <div class="card statistics">
                 <div class="stats-title">Statistics</div>
                 <svg class="stats-bar-chart" viewBox="0 0 150 77">
-                    <rect x="13" y="55" width="12" height="20" rx="4" fill="#a167ff"/>
-                    <rect x="38" y="45" width="12" height="30" rx="4" fill="#7c27ce"/>
-                    <rect x="63" y="39" width="12" height="36" rx="4" fill="#9d2fff"/>
-                    <rect x="88" y="29" width="12" height="46" rx="4" fill="#be4aff"/>
-                    <rect x="113" y="13" width="12" height="62" rx="4" fill="#f53cff"/>
+                    <rect x="13" y="55" width="12" height="20" rx="4" fill="#a167ff" />
+                    <rect x="38" y="45" width="12" height="30" rx="4" fill="#7c27ce" />
+                    <rect x="63" y="39" width="12" height="36" rx="4" fill="#9d2fff" />
+                    <rect x="88" y="29" width="12" height="46" rx="4" fill="#be4aff" />
+                    <rect x="113" y="13" width="12" height="62" rx="4" fill="#f53cff" />
                     <text x="19" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Jan</text>
                     <text x="44" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Feb</text>
                     <text x="69" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Mar</text>
@@ -948,28 +961,30 @@
                 </svg>
             </div>
         </div>
+
         <!-- Center main dashboard -->
         <div class="dashboard-center">
             <div class="main-dashboard-card">
                 <img class="main-dashboard-img" src="https://i.imgur.com/qKjEwzH.png" alt="Thrive Dashboard" />
             </div>
         </div>
+
         <!-- Right column -->
         <div class="dashboard-right">
             <div class="code-card">
-<span class="code-keyword">input_nama</span> = <span class="code-keyword">input</span>(<span class="code-string">"masukkan nama kamu :"</span>)
-<span class="code-keyword">def</span> <span class="code-func">nama</span>():
-    <span class="code-keyword">print</span>(<span class="code-string">"Nama Kamu Adalah : "</span> + <span class="code-keyword">input_nama</span>)
-<span class="code-func">nama</span>()
+                <span class="code-keyword">input_nama</span> = <span class="code-keyword">input</span>(<span class="code-string">"masukkan nama kamu :"</span>)
+                <span class="code-keyword">def</span> <span class="code-func">nama</span>():
+                <span class="code-keyword">print</span>(<span class="code-string">"Nama Kamu Adalah : "</span> + <span class="code-keyword">input_nama</span>)
+                <span class="code-func">nama</span>()
 
-<span class="code-keyword">nama_lain</span> = <span class="code-keyword">str</span>(<span class="code-keyword">input</span>(<span class="code-string">"\nIngin memasukkan nama Lain ? (Y/N)"</span>))
+                <span class="code-keyword">nama_lain</span> = <span class="code-keyword">str</span>(<span class="code-keyword">input</span>(<span class="code-string">"\nIngin memasukkan nama Lain ? (Y/N)"</span>))
 
-<span class="code-keyword">while</span> <span class="code-keyword">nama_lain</span> == <span class="code-string">"y"</span>:
-    <span class="code-keyword">input_nama</span> = <span class="code-keyword">input</span>(<span class="code-string">"masukkan nama kamu :"</span>)
-    <span class="code-func">nama</span>()
-    <span class="code-keyword">nama_lain</span> = <span class="code-keyword">str</span>(<span class="code-keyword">input</span>(<span class="code-string">"\nIngin memasukkan nama Lain ? (Y/N)"</span>))
-<span class="code-keyword">if</span> <span class="code-keyword">nama_lain</span> == <span class="code-string">"n"</span>:
-    <span class="code-keyword">print</span>(<span class="code-string">"Terima Kasih!"</span>)
+                <span class="code-keyword">while</span> <span class="code-keyword">nama_lain</span> == <span class="code-string">"y"</span>:
+                <span class="code-keyword">input_nama</span> = <span class="code-keyword">input</span>(<span class="code-string">"masukkan nama kamu :"</span>)
+                <span class="code-func">nama</span>()
+                <span class="code-keyword">nama_lain</span> = <span class="code-keyword">str</span>(<span class="code-keyword">input</span>(<span class="code-string">"\nIngin memasukkan nama Lain ? (Y/N)"</span>))
+                <span class="code-keyword">if</span> <span class="code-keyword">nama_lain</span> == <span class="code-string">"n"</span>:
+                <span class="code-keyword">print</span>(<span class="code-string">"Terima Kasih!"</span>)
             </div>
             <div class="terminal-card">
                 <span class="terminal-caret">&gt;</span> cd /Users/burhanyudha/Library/Mobile/<br>
@@ -987,8 +1002,9 @@
             const closeBtn = document.querySelector('.close-btn');
             const body = document.body;
             const navbar = document.getElementById('navbar');
+            const dashboardSection = document.getElementById('dashboard-section');
 
-            // --- 1. Mobile Sidebar Logic ---
+            // Mobile Sidebar Logic
             const openMenu = () => {
                 sidebar.classList.add('open');
                 overlay.classList.add('open');
@@ -1009,7 +1025,7 @@
                 link.addEventListener('click', closeMenu);
             });
 
-            // --- 2. Navbar Shrink/Sticky Scroll Animation ---
+            // Navbar Shrink/Sticky Scroll Animation
             const scrollHandler = () => {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
@@ -1021,28 +1037,24 @@
             window.addEventListener('scroll', scrollHandler);
             scrollHandler();
 
-            // --- 3. Intersection Observer for Content Animations ---
-            const targetsStaggered = document.querySelectorAll('[data-animate-stagger]');
-            const targetsFloating = document.querySelectorAll('.floating-element[data-animate]');
-            const targetsDashboard = document.querySelectorAll('.section-dashboard[data-animate]');
-
+            // Intersection Observer for Animations
             const observerCallback = (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const target = entry.target;
-                        
+
                         if (target.hasAttribute('data-animate-stagger')) {
                             target.classList.add('in-view');
                         }
-                        
+
                         if (target.classList.contains('floating-element')) {
                             target.classList.add('in-view');
                         }
-                        
-                        if (target.classList.contains('section-dashboard')) {
+
+                        if (target.id === 'dashboard-section') {
                             target.classList.add('in-view');
                         }
-                        
+
                         observer.unobserve(target);
                     }
                 });
@@ -1056,20 +1068,21 @@
 
             const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-            targetsStaggered.forEach(target => {
+            // Observe elements
+            document.querySelectorAll('[data-animate-stagger]').forEach(target => {
                 setTimeout(() => {
                     observer.observe(target);
                 }, 100);
             });
 
-            targetsFloating.forEach(target => {
+            document.querySelectorAll('.floating-element[data-animate]').forEach(target => {
                 observer.observe(target);
             });
 
-            targetsDashboard.forEach(target => {
-                observer.observe(target);
-            });
+            // Observe dashboard section
+            observer.observe(dashboardSection);
         });
     </script>
 </body>
+
 </html>

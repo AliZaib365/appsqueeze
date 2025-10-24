@@ -2,184 +2,200 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appsqueeze - We Bring Your Business Online</title>
-    <!-- Using Poppins for a modern, bold look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Using Font Awesome for the simple icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appsqueeze - We Bring Your Business Online</title>
+  <!-- Using Poppins for a modern, bold look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Using Fira Mono for code blocks -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Using Font Awesome for the simple icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <!-- Background Glow/Gradients -->
-    <div class="background-glow">
-        <div class="glow-sphere"></div>
-        <div class="glow-sphere"></div>
-    </div>
+  <!-- Background Glow/Gradients -->
+  <div class="background-glow">
+    <div class="glow-sphere"></div>
+    <div class="glow-sphere"></div>
+  </div>
 
-    <!-- Floating Icon/Text Elements (Data-animate for Intersection Observer) -->
-    <div class="floating-element" data-animate style="top: 15%; left: 15%; transform: rotate(-15deg);">
-        <div class="icon-box">
-            <i class="fas fa-spider"></i> <!-- Bug icon -->
-        </div>
+  <!-- Floating Icon/Text Elements (Data-animate for Intersection Observer) -->
+  <div class="floating-element" data-animate style="top: 15%; left: 15%; transform: rotate(-15deg);">
+    <div class="icon-box">
+      <i class="fas fa-spider"></i> <!-- Bug icon -->
     </div>
+  </div>
   <div class="floating-element" style="bottom: 25%; left: 20%; animation-delay: 3s; transform: rotate(-8deg);">
-        <div class="text-callout">Appsqueeze dev</div>
+    <div class="text-callout">Appsqueeze dev</div>
+  </div>
+  <div class="floating-element" data-animate style="top: 20%; right: 15%; transform: rotate(10deg);">
+    <div class="icon-box">
+      <i class="fas fa-code"></i> <!-- Code icon -->
     </div>
-    <div class="floating-element" data-animate style="top: 20%; right: 15%; transform: rotate(10deg);">
-        <div class="icon-box">
-            <i class="fas fa-code"></i> <!-- Code icon -->
-        </div>
-    </div>
+  </div>
 
-    <div class="floating-element" data-animate style="bottom: 65%; left: 20%; transform: rotate(-8deg);">
-        <div class="text-callout">Appsqueeze dev</div>
-    </div>
+  <div class="floating-element" data-animate style="bottom: 65%; left: 20%; transform: rotate(-8deg);">
+    <div class="text-callout">Appsqueeze dev</div>
+  </div>
 
-    <div class="floating-element" data-animate style="bottom: 60%; right: 20%; transform: rotate(15deg);">
-        <div class="icon-box" style="margin-bottom: 10px; transform: rotate(-5deg);">
-            <i class="fab fa-css3-alt"></i> <!-- CSS Icon -->
-        </div>
-        <div class="text-callout css">Appsqueeze dev</div>
+  <div class="floating-element" data-animate style="bottom: 60%; right: 20%; transform: rotate(15deg);">
+    <div class="icon-box" style="margin-bottom: 10px; transform: rotate(-5deg);">
+      <i class="fab fa-css3-alt"></i> <!-- CSS Icon -->
     </div>
-    
-    <!-- Navbar Container (Fixed position) -->
-    <div class="navbar-container">
-        <header class="navbar" id="navbar">
-            <a href="#" class="logo">
-                <div class="logo-icon" aria-hidden="true"></div>
-                Appsqueeze
-            </a>
-            <nav class="nav-links">
-                <a href="#">Our Service</a>
-                <a href="#">Why Choose Us</a>
-                <a href="#">Our Clients</a>
-                <a href="#">Testimonials</a>
-            </nav>
-            <a href="#" class="cta-nav">Start a Project?</a>
-            <!-- Mobile Menu Toggle Button -->
-            <button class="menu-toggle" aria-label="Open menu">
-                <i class="fas fa-bars"></i>
-            </button>
-        </header>
-    </div>
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" aria-label="Close menu">&times;</button>
-        <nav class="sidebar-links">
-            <a href="#">Our Service</a>
-            <a href="#">Why Choose Us</a>
-            <a href="#">Our Clients</a>
-            <a href="#">Testimonials</a>
-            <a href="#" class="cta-sidebar">Start a Project?</a>
-        </nav>
-    </div>
-    <div class="overlay" id="overlay"></div>
-    <!-- Hero Content (Data-animate used for staggering) -->
-    <section class="hero">
-        <h1 class="hero-title" data-animate-stagger="1">
-            We bring your <strong>business</strong> to online
-        </h1>
-        <p class="hero-description" data-animate-stagger="2">
-            Partner with us to leverage the latest technologies and stay ahead
-            in the ever-evolving digital landscape.
-        </p>
-        <a href="#" class="cta-main" data-animate-stagger="3">Start Your Project</a>
-    </section>
+    <div class="text-callout css">Appsqueeze dev</div>
+  </div>
 
-    <!-- Dummy Scroll Section to demonstrate fixed/shrinking navbar -->
-          <section class="section-dashboard">
-    <!-- Left column -->
-    <div class="dashboard-left">
+  <!-- Navbar Container (Fixed position) -->
+  <div class="navbar-container">
+    <header class="navbar" id="navbar">
+      <a href="#" class="logo">
+        <div class="logo-icon" aria-hidden="true"></div>
+        Appsqueeze
+      </a>
+      <nav class="nav-links">
+        <a href="#">Our Service</a>
+        <a href="#">Why Choose Us</a>
+        <a href="#">Our Clients</a>
+        <a href="#">Testimonials</a>
+      </nav>
+      <a href="#" class="cta-nav">Start a Project?</a>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" aria-label="Open menu" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+  </div>
+
+  <!-- Off-Canvas Sidebar and Overlay -->
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" aria-label="Close menu" id="closeSidebar">&times;</button>
+    <nav class="sidebar-links">
+      <a href="#">Our Service</a>
+      <a href="#">Why Choose Us</a>
+      <a href="#">Our Clients</a>
+      <a href="#">Testimonials</a>
+      <a href="#" class="cta-sidebar">Start a Project?</a>
+    </nav>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Hero Content (Data-animate used for staggering) -->
+  <section class="hero">
+    <h1 class="hero-title" data-animate-stagger="1">
+      We bring your <strong>business</strong> to online
+    </h1>
+    <p class="hero-description" data-animate-stagger="2">
+      Partner with us to leverage the latest technologies and stay ahead
+      in the ever-evolving digital landscape.
+    </p>
+    <a href="#" class="cta-main" data-animate-stagger="3">Start Your Project</a>
+  </section>
+
+  <!-- Interactive Dashboard Section -->
+  <section class="section-dashboard" id="dashboard">
+    <!-- Left column (staggered animation group 1) -->
+    <div class="dashboard-left dashboard-col" data-animate-group="1">
       <div class="card">
-        <div class="card-title">Spacing</div>
+        <div class="card-title">Spacing & Layout</div>
         <div class="spacing-visual">
           <!-- Fake spacing UI SVG -->
           <svg class="spacing-visual-svg" viewBox="0 0 160 65">
-            <rect x="25" y="15" width="110" height="35" rx="7" fill="#191a2d" stroke="#7c27ce" stroke-width="2"/>
-            <text x="80" y="38" font-size="14" fill="#7c27ce" text-anchor="middle" font-family="Inter">8</text>
-            <text x="18" y="38" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
-            <text x="142" y="38" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
-            <text x="80" y="12" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
-            <text x="80" y="62" font-size="11" fill="#7c27ce" text-anchor="middle" font-family="Inter">20</text>
+            <rect x="25" y="15" width="110" height="35" rx="7" fill="#191a2d" stroke="#9a42f5" stroke-width="2" />
+            <text x="80" y="38" font-size="14" fill="#9a42f5" text-anchor="middle" font-family="Poppins">8</text>
+            <text x="18" y="38" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
+            <text x="142" y="38" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
+            <text x="80" y="12" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
+            <text x="80" y="62" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
           </svg>
         </div>
         <div class="card-subtitle">Typography</div>
         <div style="margin-bottom: 10px;">
           <select>
+            <option>Poppins (Active)</option>
             <option>Inter</option>
-            <option>Poppins</option>
             <option>Roboto</option>
           </select>
         </div>
         <div style="display: flex; gap: 8px; margin-bottom: 10px;">
           <select>
-            <option>Regular</option>
+            <option>Extra Bold (800)</option>
             <option>Medium</option>
-            <option>Bold</option>
+            <option>Regular</option>
           </select>
           <input type="number" value="24" min="8" max="72" />
         </div>
         <div class="card-controls">
-          <button>&#8676;</button>
-          <button style="font-weight:bold;">&#8592;</button>
-          <button style="font-weight:bold;">&#8594;</button>
-          <button>&#8677;</button>
+          <button title="Undo">&#8676;</button>
+          <button title="Move Left" style="font-weight:bold;">&#8592;</button>
+          <button title="Move Right" style="font-weight:bold;">&#8594;</button>
+          <button title="Redo">&#8677;</button>
         </div>
       </div>
       <div class="card statistics">
-        <div class="stats-title">Statistics</div>
+        <div class="stats-title">Analytics Snapshot</div>
         <svg class="stats-bar-chart" viewBox="0 0 150 77">
-          <rect x="13" y="55" width="12" height="20" rx="4" fill="#a167ff"/>
-          <rect x="38" y="45" width="12" height="30" rx="4" fill="#7c27ce"/>
-          <rect x="63" y="39" width="12" height="36" rx="4" fill="#9d2fff"/>
-          <rect x="88" y="29" width="12" height="46" rx="4" fill="#be4aff"/>
-          <rect x="113" y="13" width="12" height="62" rx="4" fill="#f53cff"/>
-          <text x="19" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Jan</text>
-          <text x="44" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Feb</text>
-          <text x="69" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Mar</text>
-          <text x="94" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Apr</text>
-          <text x="119" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">May</text>
-          <text x="134" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Inter">Jun</text>
+          <rect x="13" y="55" width="12" height="20" rx="4" fill="#a167ff" />
+          <rect x="38" y="45" width="12" height="30" rx="4" fill="#7c27ce" />
+          <rect x="63" y="39" width="12" height="36" rx="4" fill="#9d2fff" />
+          <rect x="88" y="29" width="12" height="46" rx="4" fill="#e81f88" />
+          <rect x="113" y="13" width="12" height="62" rx="4" fill="#ff4d99" />
+          <text x="19" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Jan</text>
+          <text x="44" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Feb</text>
+          <text x="69" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Mar</text>
+          <text x="94" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Apr</text>
+          <text x="119" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">May</text>
         </svg>
       </div>
     </div>
-    <!-- Center main dashboard -->
-    <div class="dashboard-center">
+
+    <!-- Center main dashboard (staggered animation group 2) -->
+    <div class="dashboard-center dashboard-col" data-animate-group="2">
       <div class="main-dashboard-card">
-        <img class="main-dashboard-img" src="https://i.imgur.com/qKjEwzH.png" alt="Thrive Dashboard" />
-        <!-- Replace src with your actual dashboard image if needed -->
+        <img class="main-dashboard-img" src="https://placehold.co/500x700/0f0028/8a2be2?text=Web+App+Preview"
+          onerror="this.src='https://placehold.co/380x540/0f0028/8a2be2?text=Web+App+Preview'"
+          alt="Web App Preview Mockup" />
+        <!-- Using placeholder.co as a fallback/example image -->
       </div>
     </div>
-    <!-- Right column -->
-    <div class="dashboard-right">
+
+    <!-- Right column (staggered animation group 3) -->
+    <div class="dashboard-right dashboard-col" data-animate-group="3">
       <div class="code-card">
-<span class="code-keyword">input_nama</span> = <span class="code-keyword">input</span>(<span class="code-string">"masukkan nama kamu :"</span>)
-<span class="code-keyword">def</span> <span class="code-func">nama</span>():
-    <span class="code-keyword">print</span>(<span class="code-string">"Nama Kamu Adalah : "</span> + <span class="code-keyword">input_nama</span>)
-<span class="code-func">nama</span>()
-
-<span class="code-keyword">nama_lain</span> = <span class="code-keyword">str</span>(<span class="code-keyword">input</span>(<span class="code-string">"\nIngin memasukkan nama Lain ? (Y/N)"</span>))
-
-<span class="code-keyword">while</span> <span class="code-keyword">nama_lain</span> == <span class="code-string">"y"</span>:
-    <span class="code-keyword">input_nama</span> = <span class="code-keyword">input</span>(<span class="code-string">"masukkan nama kamu :"</span>)
-    <span class="code-func">nama</span>()
-    <span class="code-keyword">nama_lain</span> = <span class="code-keyword">str</span>(<span class="code-keyword">input</span>(<span class="code-string">"\nIngin memasukkan nama Lain ? (Y/N)"</span>))
-<span class="code-keyword">if</span> <span class="code-keyword">nama_lain</span> == <span class="code-string">"n"</span>:
-    <span class="code-keyword">print</span>(<span class="code-string">"Terima Kasih!"</span>)
+        <span class="code-keyword">const</span> <span class="code-var">updateState</span> = (<span
+          class="code-var">data</span>) => {
+            <span class="code-comment">// Process and dispatch new data</span>
+            <span class="code-keyword">if</span> (<span class="code-var">data</span>.<span
+          class="code-var">success</span>) {
+              <span class="code-keyword">this</span>.<span class="code-func">setState</span>({
+                <span class="code-var">status</span>: <span class="code-string">"Synced"</span>,
+                <span class="code-var">lastUpdate</span>: <span class="code-keyword">new</span> <span
+          class="code-func">Date</span>().<span class="code-func">toLocaleTimeString</span>(),
+                <span class="code-var">payload</span>: <span class="code-var">data</span>.<span
+          class="code-var">payload</span>,
+              });
+            } <span class="code-keyword">else</span> {
+              <span class="code-keyword">console</span>.<span class="code-func">error</span>(<span
+          class="code-string">"API Error"</span>, <span class="code-var">data</span>.<span
+          class="code-var">error</span>);
+            }
+        };
+        <span class="code-keyword">export default</span> <span class="code-var">updateState</span>;
       </div>
       <div class="terminal-card">
-        <span class="terminal-caret">&gt;</span> cd /Users/burhanyudha/Library/Mobile/<br>
-        Documents/com\_~apple\_~CloudDocs/Documents/<br>
-        Development/HTML/index.html
+        <span class="terminal-caret">|</span> <span style="color: #fff;">appsqueeze</span>@<span
+          style="color: #7c27ce;">dev</span>:~/project $<span style="color: #38d6b8;"> npm run build:prod</span>
+        <br>
+        <span style="color: #a3a3a3;">&gt; Build optimized... (94%)</span>
+        <br>
+        <span style="color: #38d6b8;">&gt; Complete in 1.4s. Deploying...</span>
       </div>
     </div>
   </section>
 
-    <!-- Off-Canvas Sidebar -->
 
-<script src="./js/script.js"></script>
 </body>
+<script src="./js/script.js"></script>
 
 </html>

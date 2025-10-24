@@ -1,99 +1,81 @@
         document.addEventListener('DOMContentLoaded', () => {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('overlay');
-            const menuToggle = document.querySelector('.menu-toggle');
-            const closeBtn = document.querySelector('.close-btn');
-            const body = document.body;
             const navbar = document.getElementById('navbar');
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const overlay = document.getElementById('overlay');
+            const animatedElements = document.querySelectorAll('[data-animate-stagger], [data-animate]');
+            const dashboardSection = document.getElementById('dashboard');
 
-            // --- 1. Mobile Sidebar Logic ---
 
-            const openMenu = () => {
-                sidebar.classList.add('open');
-                overlay.classList.add('open');
-                body.style.overflow = 'hidden'; // Prevent scrolling background
-            };
-
-            const closeMenu = () => {
-                sidebar.classList.remove('open');
-                overlay.classList.remove('open');
-                body.style.overflow = ''; // Restore scrolling
-            };
-
-            menuToggle.addEventListener('click', openMenu);
-            closeBtn.addEventListener('click', closeMenu);
-            overlay.addEventListener('click', closeMenu);
-
-            document.querySelectorAll('.sidebar-links a').forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-
-            // --- 2. Navbar Shrink/Sticky Scroll Animation ---
-
-            const scrollHandler = () => {
-                // Check if user has scrolled more than 50 pixels
+            // --- 1. Navbar Scroll Shrink/Fixed Logic ---
+            const handleScroll = () => {
                 if (window.scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
             };
-
-            window.addEventListener('scroll', scrollHandler);
-
-            // Trigger the handler once on load in case the page loads scrolled down
-            scrollHandler();
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Initial check
 
 
-            // --- 3. Intersection Observer for Content Fade-In/Slide-Up ---
+            // --- 2. Mobile Menu (Sidebar) Logic ---
+            const toggleSidebar = () => {
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('open');
+                document.body.classList.toggle('no-scroll'); // Optional: prevent body scroll
+            };
+
+            menuToggle.addEventListener('click', toggleSidebar);
+            closeSidebar.addEventListener('click', toggleSidebar);
+            overlay.addEventListener('click', toggleSidebar);
             
-            // Elements with simple fade-in/staggered slide-up
-            const targetsStaggered = document.querySelectorAll('[data-animate-stagger]');
-            // Floating elements with complex float animation
-            const targetsFloating = document.querySelectorAll('.floating-element[data-animate]');
+            // --- 3. Intersection Observer (Fade-In Animations) ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
 
-            const observerCallback = (entries, observer) => {
+            const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const target = entry.target;
+                        const element = entry.target;
                         
-                        // Check if it's a staggered hero element or demo section heading
-                        if (target.hasAttribute('data-animate-stagger')) {
-                            // Apply 'in-view' class to trigger the CSS transition
-                            target.classList.add('in-view'); 
+                        // Handle Hero Staggered/Floating Elements
+                        if (element.hasAttribute('data-animate-stagger')) {
+                            element.classList.add('in-view');
+                        } else if (element.hasAttribute('data-animate')) {
+                            element.classList.add('in-view');
                         }
-                        
-                        // Check if it's a floating element
-                        if (target.classList.contains('floating-element')) {
-                            // Apply 'in-view' class to trigger opacity and start @keyframes animation
-                            target.classList.add('in-view'); 
+
+                        // Handle Dashboard Columns (Section Stagger)
+                        if (element === dashboardSection) {
+                            const cols = element.querySelectorAll('.dashboard-col');
+                            cols.forEach((col) => {
+                                const group = col.getAttribute('data-animate-group');
+                                if (group) {
+                                    col.classList.add(`in-view-${group}`);
+                                }
+                            });
+                            // No longer need to observe the section once the columns are animated
+                            observer.unobserve(element);
                         }
-                        
-                        // Stop observing once the element is visible
-                        observer.unobserve(target);
+
+                        // For Hero/Floating elements, stop observing after they've appeared
+                        if (element.classList.contains('hero-title') || element.classList.contains('floating-element')) {
+                             observer.unobserve(element);
+                        }
                     }
                 });
-            };
+            }, observerOptions);
 
-            // Set up the observer
-            const observerOptions = {
-                root: null, // viewport
-                rootMargin: '0px',
-                threshold: 0.1 // 10% of element visible
-            };
-
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-            // Observe the staggered elements
-            targetsStaggered.forEach(target => {
-                // Use a short timeout to ensure the DOM is fully painted before observing the first element
-                setTimeout(() => {
-                    observer.observe(target);
-                }, 100); 
-            });
-
-            // Observe the floating elements
-            targetsFloating.forEach(target => {
-                observer.observe(target);
-            });
+            // Observe Hero/Floating elements
+            animatedElements.forEach(el => observer.observe(el));
+            
+            // Observe Dashboard section
+            if (dashboardSection) {
+                observer.observe(dashboardSection);
+            }
         });
