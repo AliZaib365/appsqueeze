@@ -15,185 +15,746 @@
 </head>
 
 <body>
-  <!-- Background Glow/Gradients -->
   <div class="background-glow">
     <div class="glow-sphere"></div>
     <div class="glow-sphere"></div>
   </div>
 
-  <div class="floating-element" data-animate style="top: 15%; left: 15%; transform: rotate(-15deg);">
+  <div class="floating-element" data-animate style="top: 5%; left: 15%; transform: rotate(-15deg);">
     <div class="icon-box">
-      <i class="fas fa-spider"></i>
+      <i class="fas fa-spider" aria-hidden="true"></i>
     </div>
   </div>
-  <div class="floating-element" style="bottom: 25%; left: 20%; animation-delay: 3s; transform: rotate(-8deg);">
+  <div class="floating-element" data-animate style="bottom: 95%; left: 20%; transform: rotate(-8deg);">
     <div class="text-callout">Appsqueeze dev</div>
   </div>
-  <div class="floating-element" data-animate style="top: 20%; right: 15%; transform: rotate(10deg);">
+  <div class="floating-element" data-animate style="top: 5%; right: 15%; transform: rotate(10deg);">
     <div class="icon-box">
-      <i class="fas fa-code"></i> 
+      <i class="fas fa-code" aria-hidden="true"></i>
     </div>
   </div>
 
-  <div class="floating-element" data-animate style="bottom: 65%; left: 20%; transform: rotate(-8deg);">
+  <div class="floating-element" data-animate style="bottom: 95%; left: 20%; transform: rotate(-8deg);">
     <div class="text-callout">Appsqueeze dev</div>
   </div>
 
-  <div class="floating-element" data-animate style="bottom: 60%; right: 20%; transform: rotate(15deg);">
+  <div class="floating-element" data-animate style="bottom: 95%; right: 20%; transform: rotate(15deg);">
     <div class="icon-box" style="margin-bottom: 10px; transform: rotate(-5deg);">
-      <i class="fab fa-css3-alt"></i> <!-- CSS Icon -->
+      <i class="fab fa-css3-alt" aria-hidden="true"></i>
     </div>
     <div class="text-callout css">Appsqueeze dev</div>
   </div>
 
-  <!-- Navbar Container (Fixed position) -->
   <div class="navbar-container">
     <header class="navbar" id="navbar">
       <a href="#" class="logo">
         <div class="logo-icon" aria-hidden="true"></div>
         Appsqueeze
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact Us</a>
+        <a href="#services">Services</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
       </nav>
       <a href="tel:+1123456789" class="cta-nav">Start a Project?</a>
-      <!-- Mobile Menu Toggle Button -->
       <button class="menu-toggle" aria-label="Open menu" id="menuToggle">
         <i class="fas fa-bars"></i>
       </button>
     </header>
   </div>
 
-  <!-- Off-Canvas Sidebar and Overlay -->
   <div class="sidebar" id="sidebar">
     <button class="close-btn" aria-label="Close menu" id="closeSidebar">&times;</button>
-    <nav class="sidebar-links">
+    <nav class="sidebar-links" aria-label="Mobile navigation">
       <a href="#">Home</a>
-      <a href="#">Services</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
-      <a href="tel:+1123456789" class="cta-nav">Start a Project?</a>
+      <a href="#services">Services</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact Us</a>
+      <a href="tel:+1123456789" class="cta-sidebar">Start a Project?</a>
     </nav>
   </div>
   <div class="overlay" id="overlay"></div>
 
-  <!-- Hero Content (Data-animate used for staggering) -->
-  <section class="hero">
-    <h1 class="hero-title" data-animate-stagger="1">
-      We bring your <strong>business</strong> to online
-    </h1>
-    <p class="hero-description" data-animate-stagger="2">
-      Partner with us to leverage the latest technologies and stay ahead
-      in the ever-evolving digital landscape.
-    </p>
-    <a href="#" class="cta-main" data-animate-stagger="3">Start Your Project</a>
-  </section>
+  <main>
+    <section class="hero">
+      <h1 class="hero-title" data-animate-stagger="1">
+        We bring your <strong>business</strong> to online
+      </h1>
+      <p class="hero-description" data-animate-stagger="2">
+        Partner with us to leverage the latest technologies and stay ahead
+        in the ever-evolving digital landscape.
+      </p>
+      <a href="#contact" class="cta-main" data-animate-stagger="3">Start Your Project</a>
+    </section>
 
-  <!-- Interactive Dashboard Section -->
-  <section class="section-dashboard" id="dashboard">
-    <!-- Left column (staggered animation group 1) -->
-    <div class="dashboard-left dashboard-col" data-animate-group="1">
+    <section class="section-dashboard" id="dashboard">
+      <div class="dashboard-left dashboard-col" data-animate-group="1">
+        <div class="card">
+          <div class="card-title">Spacing & Layout</div>
+          <div class="spacing-visual">
+            <svg class="spacing-visual-svg" viewBox="0 0 160 65" aria-hidden="true">
+              <rect x="25" y="15" width="110" height="35" rx="7" fill="#191a2d" stroke="#9a42f5" stroke-width="2" />
+              <text x="80" y="38" font-size="14" fill="#9a42f5" text-anchor="middle" font-family="Poppins">8</text>
+              <text x="18" y="38" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
+              <text x="142" y="38" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
+              <text x="80" y="12" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
+              <text x="80" y="62" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
+            </svg>
+          </div>
+          <div class="card-subtitle">Typography</div>
+          <div style="margin-bottom: 10px;">
+            <select aria-label="Select font family">
+              <option>Poppins (Active)</option>
+              <option>Inter</option>
+              <option>Roboto</option>
+            </select>
+          </div>
+          <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+            <select aria-label="Select font weight">
+              <option>Extra Bold (800)</option>
+              <option>Medium</option>
+              <option>Regular</option>
+            </select>
+            <input type="number" value="24" min="8" max="72" aria-label="Font size" />
+          </div>
+          <div class="card-controls">
+            <button title="Undo">&#8676;</button>
+            <button title="Move Left" style="font-weight:bold;">&#8592;</button>
+            <button title="Move Right" style="font-weight:bold;">&#8594;</button>
+            <button title="Redo">&#8677;</button>
+          </div>
+        </div>
+        <div class="panel" style="margin-top:28px;">
+          <div class="panel-title">Statistics</div>
+          <div class="stats-chart">
+            <div class="stats-bar-container">
+              <div class="stats-bar" style="height:56px;">
+                <div class="stats-bar-value">56%</div>
+              </div>
+              <div class="stats-label">Jan</div>
+            </div>
+            <div class="stats-bar-container">
+              <div class="stats-bar" style="height:90px;">
+                <div class="stats-bar-value">90%</div>
+              </div>
+              <div class="stats-label">Feb</div>
+            </div>
+            <div class="stats-bar-container">
+              <div class="stats-bar" style="height:70px;">
+                <div class="stats-bar-value">70%</div>
+              </div>
+              <div class="stats-label">Mar</div>
+            </div>
+            <div class="stats-bar-container">
+              <div class="stats-bar" style="height:100px;">
+                <div class="stats-bar-value">100%</div>
+              </div>
+              <div class="stats-label">Apr</div>
+            </div>
+            <div class="stats-bar-container">
+              <div class="stats-bar" style="height:85px;">
+                <div class="stats-bar-value">85%</div>
+              </div>
+              <div class="stats-label">May</div>
+            </div>
+            <div class="stats-bar-container">
+              <div class="stats-bar" style="height:65px;">
+                <div class="stats-bar-value">65%</div>
+              </div>
+              <div class="stats-label">Jun</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-center dashboard-col" data-animate-group="2">
+        <div class="main-dashboard-card">
+          <img class="main-dashboard-img" src="./img/web.png" alt="Web App Preview Mockup" />
+        </div>
+      </div>
+
+      <div class="dashboard-right dashboard-col" data-animate-group="3">
+        <div class="code-card">
+          <span class="code-keyword">const</span> <span class="code-var">updateState</span> = (<span
+            class="code-var">data</span>) => {
+              <span class="code-comment">// Process and dispatch new data</span>
+              <span class="code-keyword">if</span> (<span class="code-var">data</span>.<span
+            class="code-var">success</span>) {
+                <span class="code-keyword">this</span>.<span class="code-func">setState</span>({
+                  <span class="code-var">status</span>: <span class="code-string">"Synced"</span>,
+                  <span class="code-var">lastUpdate</span>: <span class="code-keyword">new</span> <span
+            class="code-func">Date</span>().<span class="code-func">toLocaleTimeString</span>(),
+                  <span class="code-var">payload</span>: <span class="code-var">data</span>.<span
+            class="code-var">payload</span>,
+                });
+              } <span class="code-keyword">else</span> {
+                <span class="code-keyword">console</span>.<span class="code-func">error</span>(<span
+            class="code-string">"API Error"</span>, <span class="code-var">data</span>.<span
+            class="code-var">error</span>);
+              }
+          };
+          <span class="code-keyword">export default</span> <span class="code-var">updateState</span>;
+        </div>
+        <div class="terminal-card">
+          <span style="color: #fff;">appsqueeze</span>@<span style="color: #7c27ce;">dev</span>:~/project $<span
+            style="color: #38d6b8;"> npm run build:prod</span>
+          <br>
+          <span style="color: #a3a3a3;">&gt; Build optimized... (94%)</span>
+          <br>
+          <span style="color: #38d6b8;">&gt; Complete in 1.4s. Deploying...</span><span class="terminal-caret">|</span>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="trusted-section">
+      <h2 class="trusted-title">Trusted by the world's most innovative companies</h2>
+
+      <div class="logos-container">
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+        </div>
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logitech_logo.svg" alt="Logitech">
+        </div>
+        <div class="logo-item lenovo">Lenovo</div>
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Yamaha_Motor_logo.svg" alt="Yamaha">
+        </div>
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/ASUS_Logo.svg" alt="ASUS">
+        </div>
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+        </div>
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+        </div>
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="testimonial">
+        This platform has revolutionized how we collaborate with our partners. The seamless integration and reliable
+        performance have exceeded our expectations.
+      </div>
+      <div class="author">Sarah Johnson</div>
+      <div class="role">CTO, Tech Innovations Inc.</div>
+    </section>
+  </main>
+  <div class="bg-elements">
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="benefits-button">
+        <i class="fas fa-rocket"></i> The Benefits of Having a Website
+      </div>
+      <h1 class="main-title">Unleash Your Business Potential</h1>
+      <p class="subtitle">It's the first point of contact for potential customers, providing them with valuable
+        information and creating a lasting impression</p>
+    </div>
+
+    <div class="grid">
       <div class="card">
-        <div class="card-title">Spacing & Layout</div>
-        <div class="spacing-visual">
-          <!-- Fake spacing UI SVG -->
-          <svg class="spacing-visual-svg" viewBox="0 0 160 65">
-            <rect x="25" y="15" width="110" height="35" rx="7" fill="#191a2d" stroke="#9a42f5" stroke-width="2" />
-            <text x="80" y="38" font-size="14" fill="#9a42f5" text-anchor="middle" font-family="Poppins">8</text>
-            <text x="18" y="38" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
-            <text x="142" y="38" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
-            <text x="80" y="12" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
-            <text x="80" y="62" font-size="11" fill="#9a42f5" text-anchor="middle" font-family="Poppins">20</text>
-          </svg>
+        <h2>Increase Visibility</h2>
+        <p>Having a website makes it easier for people to find you online. With billions of internet users around the
+          world, having a website allows you to reach a larger audience and increase your online visibility. A
+          well-optimized website can rank higher in search engine results, making it more likely that potential
+          customers will discover your business when searching for products or services you offer.</p>
+
+        <div class="graph-wrapper">
+
+          <div class="chart-container">
+            <svg width="100%" height="100%" viewBox="0 0 400 150">
+              <defs>
+                <linearGradient id="areaGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="rgba(180, 73, 255, 0.5)" />
+                  <stop offset="100%" stop-color="rgba(180, 73, 255, 0.05)" />
+                </linearGradient>
+              </defs>
+
+              <!-- Area under the curve -->
+              <path class="chart-area"
+                d="M0,150 C50,150 80,120 100,110 C120,100 150,80 180,70 C210,60 250,40 280,30 C310,20 350,10 400,5 L400,150 Z" />
+
+              <!-- Main curve line -->
+              <path class="chart-line"
+                d="M0,150 C50,150 80,120 100,110 C120,100 150,80 180,70 C210,60 250,40 280,30 C310,20 350,10 400,5"
+                stroke="#9a42f5" />
+
+              <!-- Data points -->
+              <circle class="data-point" cx="0" cy="150" r="5" fill="#9a42f5" stroke="#fff" />
+              <circle class="data-point" cx="100" cy="110" r="5" fill="#9a42f5" stroke="#fff" />
+              <circle class="data-point" cx="180" cy="70" r="5" fill="#9a42f5" stroke="#fff" />
+              <circle class="data-point" cx="280" cy="30" r="5" fill="#9a42f5" stroke="#fff" />
+              <circle class="data-point" cx="400" cy="5" r="5" fill="#9a42f5" stroke="#fff" />
+
+              <!-- Data point labels -->
+              <text class="point-label" x="0" y="160" text-anchor="start">Start</text>
+              <text class="point-label" x="100" y="100" text-anchor="middle">+25%</text>
+              <text class="point-label" x="180" y="60" text-anchor="middle">+50%</text>
+              <text class="point-label" x="280" y="20" text-anchor="middle">+75%</text>
+              <text class="point-label" x="400" y="0" text-anchor="end">+98%</text>
+            </svg>
+          </div>
         </div>
-        <div class="card-subtitle">Typography</div>
-        <div style="margin-bottom: 10px;">
-          <select>
-            <option>Poppins (Active)</option>
-            <option>Inter</option>
-            <option>Roboto</option>
-          </select>
+
+        <div class="progress-container">
+          <div class="progress-label">
+            <span>Current Growth</span>
+            <span>85%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 85%"></div>
+          </div>
         </div>
-        <div style="display: flex; gap: 8px; margin-bottom: 10px;">
-          <select>
-            <option>Extra Bold (800)</option>
-            <option>Medium</option>
-            <option>Regular</option>
-          </select>
-          <input type="number" value="24" min="8" max="72" />
-        </div>
-        <div class="card-controls">
-          <button title="Undo">&#8676;</button>
-          <button title="Move Left" style="font-weight:bold;">&#8592;</button>
-          <button title="Move Right" style="font-weight:bold;">&#8594;</button>
-          <button title="Redo">&#8677;</button>
+
+        <div class="card-actions">
+          <button class="action-btn">
+            <i class="fas fa-chart-line"></i> View Details
+          </button>
+          <button class="action-btn primary">
+            <i class="fas fa-plus"></i> Add Metric
+          </button>
         </div>
       </div>
-      <div class="card statistics">
-        <div class="stats-title">Analytics Snapshot</div>
-        <svg class="stats-bar-chart" viewBox="0 0 150 77">
-          <rect x="13" y="55" width="12" height="20" rx="4" fill="#a167ff" />
-          <rect x="38" y="45" width="12" height="30" rx="4" fill="#7c27ce" />
-          <rect x="63" y="39" width="12" height="36" rx="4" fill="#9d2fff" />
-          <rect x="88" y="29" width="12" height="46" rx="4" fill="#e81f88" />
-          <rect x="113" y="13" width="12" height="62" rx="4" fill="#ff4d99" />
-          <text x="19" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Jan</text>
-          <text x="44" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Feb</text>
-          <text x="69" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Mar</text>
-          <text x="94" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">Apr</text>
-          <text x="119" y="72" font-size="8" fill="#fff" text-anchor="middle" font-family="Poppins">May</text>
-        </svg>
+
+      <div class="card">
+        <h2>Credibility and Professionalism</h2>
+        <p>A well-designed website can make you look more professional and credible. It helps provide potential
+          customers with a positive impression of your brand and show that you are a legitimate business. In today's
+          digital age, consumers often research companies online before making purchasing decisions. A professional
+          website with clear information about your products, services, and company values builds trust and establishes
+          your business as an authority in your industry.</p>
+
+        <div class="credibility-icon-container">
+          <i class="fas fa-award"></i>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-label">
+            <span>Trust Level</span>
+            <span>92%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 92%"></div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="action-btn">
+            <i class="fas fa-shield-alt"></i> Security
+          </button>
+          <button class="action-btn primary">
+            <i class="fas fa-certificate"></i> Get Certified
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Marketing and Sales</h2>
+        <p>A website can be an effective tool for marketing and sales. You can use your website to showcase your
+          products or services, share testimonials and reviews, and even sell products or services online. With
+          integrated e-commerce functionality, your website can serve as a 24/7 salesperson, allowing customers to make
+          purchases at their convenience. Digital marketing strategies like SEO, content marketing, and social media
+          integration can all be coordinated through your website to drive traffic and increase conversions.</p>
+
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-value">$88,390<span class="growth-indicator growth-up">12% ↑</span></div>
+            <div class="stat-label">Total Selling</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">128,000<span class="growth-indicator growth-up">12% ↑</span></div>
+            <div class="stat-label">Total Product</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">$5,124,294<span class="growth-indicator growth-up">12% ↑</span></div>
+            <div class="stat-label">Total Profit</div>
+          </div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-label">
+            <span>Sales Target</span>
+            <span>78%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 78%"></div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="action-btn">
+            <i class="fas fa-shopping-cart"></i> View Products
+          </button>
+          <button class="action-btn primary">
+            <i class="fas fa-bullhorn"></i> Promote
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Customer Engagement</h2>
+        <p>A website can help you engage with your customers and build stronger relationships. You can use your website
+          to provide helpful information, answer questions, and even offer customer support. Features like blogs,
+          forums, and knowledge bases allow you to share valuable content that keeps customers coming back. Interactive
+          elements such as contact forms, live chat, and feedback systems enable direct communication, helping you
+          understand customer needs and improve your products or services based on their input.</p>
+
+        <div class="engagement-stats">
+          <div class="engagement-stat-item">
+            <div class="stat-circle circle-bg-1 circle-icon-1">
+              <i class="fas fa-dollar-sign"></i>
+              <div class="circle-percentage">15%</div>
+            </div>
+            <div class="circle-label">Increase in Conversion</div>
+          </div>
+
+          <div class="engagement-stat-item">
+            <div class="stat-circle circle-bg-2 circle-icon-2">
+              <i class="fas fa-users"></i>
+              <div class="circle-percentage">15%</div>
+            </div>
+            <div class="circle-label">Increase in Relationship</div>
+          </div>
+
+          <div class="engagement-stat-item">
+            <div class="stat-circle circle-bg-3 circle-icon-3">
+              <i class="fas fa-retweet"></i>
+              <div class="circle-percentage">15%</div>
+            </div>
+            <div class="circle-label">Increase in Retention</div>
+          </div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-label">
+            <span>Engagement Rate</span>
+            <span>67%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 67%"></div>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="action-btn">
+            <i class="fas fa-comments"></i> Feedback
+          </button>
+          <button class="action-btn primary">
+            <i class="fas fa-headset"></i> Support
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- Center main dashboard (staggered animation group 2) -->
-    <div class="dashboard-center dashboard-col" data-animate-group="2">
-      <div class="main-dashboard-card">
-        <img class="main-dashboard-img" src="./img/web.png"
-          onerror="this.src='https://placehold.co/380x540/0f0028/8a2be2?text=Web+App+Preview'"
-          alt="Web App Preview Mockup" />
-        <!-- Using placeholder.co as a fallback/example image -->
+   
+  </div>
+  <div class="project-container">
+    <div class="wrap" id="services-section">
+      <div class="top-badge"><i class="fa-solid fa-star" style="color:var(--accent)"></i> Experience Excellence</div>
+      <h1 class="title">Transforming Ideas into <span
+          style="background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent">Powerful
+          Solutions</span></h1>
+      <p class="subtitle">With our expertise and dedication, we are committed to delivering exceptional services that
+        meet your unique needs.</p>
+
+      <!-- Buttons created in HTML (not generated from data) -->
+      <div class="tabs" role="tablist" aria-label="Service categories" id="tabs">
+        <button id="btn-web" class="tab-btn active" role="tab" aria-selected="true">Web Development</button>
+        <button id="btn-domain" class="tab-btn" role="tab" aria-selected="false">Domain & Hosting</button>
+        <button id="btn-security" class="tab-btn" role="tab" aria-selected="false">Security & SSL</button>
+        <button id="btn-wp" class="tab-btn" role="tab" aria-selected="false">WordPress Services</button>
+        <button id="btn-system" class="tab-btn" role="tab" aria-selected="false">System Management</button>
+        <button id="btn-seo" class="tab-btn" role="tab" aria-selected="false">SEO</button>
+      </div>
+
+      <div class="panel" role="region" aria-live="polite">
+        <div class="panel-inner">
+          <!-- these elements will be updated using document.getElementById(...).innerText / innerHTML -->
+          <h3 id="panel-title">Web Development</h3>
+          <p id="panel-desc">It involves both front-end and back-end development, plus testing and optimization so sites
+            work great on every device.</p>
+
+          <div class="screenshot-wrap">
+            <div class="screenshot" role="img" aria-label="Project preview">
+              <div class="browser-top" aria-hidden="true">
+                <div class="dots">
+                  <div class="dot red"></div>
+                  <div class="dot yellow"></div>
+                  <div class="dot green"></div>
+                </div>
+                <div class="browser-url">https://your-project.example/app</div>
+              </div>
+
+              <div class="screen-stage">
+                <!-- one image element updated on click -->
+                <img id="preview-image" class="preview-image"
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+                  alt="Web Development Preview">
+              </div>
+            </div>
+          </div>
+
+          <!-- features updated with innerHTML if desired -->
+          <div id="features" class="features" aria-live="polite">
+            <div class="feature"><i class="fas fa-code"></i>
+              <h4>Custom Development</h4>
+              <p>Tailored solutions for your needs</p>
+            </div>
+            <div class="feature"><i class="fas fa-mobile-alt"></i>
+              <h4>Responsive</h4>
+              <p>Looks great on any screen</p>
+            </div>
+            <div class="feature"><i class="fas fa-rocket"></i>
+              <h4>Performance</h4>
+              <p>Fast and optimized</p>
+            </div>
+            <div class="feature"><i class="fas fa-shield-alt"></i>
+              <h4>Security</h4>
+              <p>Protected and maintained</p>
+            </div>
+          </div>
+
+          <div class="cta">
+            <!-- CTA button exists in HTML and will be updated via innerHTML -->
+            <button id="cta-btn"><i class="fas fa-arrow-right"></i><span id="cta-text"> Get Web Development
+                Now</span></button>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="experience-container1">
+      <div class="experience-container">
+        <section class="stats-section" aria-labelledby="about-title">
+            <div class="layout">
+                <div class="left">
+                    <div class="badge" aria-hidden="true"><span class="dot" aria-hidden="true"></span> Working History</div>
+                    <h2 id="about-title" class="title">A little about <span class="highlight">our</span> Story</h2>
+                    <p class="lead">With our expertise and dedication, we are committed to delivering exceptional services that meet your unique needs.</p>
 
-    <!-- Right column (staggered animation group 3) -->
-    <div class="dashboard-right dashboard-col" data-animate-group="3">
-      <div class="code-card">
-        <span class="code-keyword">const</span> <span class="code-var">updateState</span> = (<span
-          class="code-var">data</span>) => {
-            <span class="code-comment">// Process and dispatch new data</span>
-            <span class="code-keyword">if</span> (<span class="code-var">data</span>.<span
-          class="code-var">success</span>) {
-              <span class="code-keyword">this</span>.<span class="code-func">setState</span>({
-                <span class="code-var">status</span>: <span class="code-string">"Synced"</span>,
-                <span class="code-var">lastUpdate</span>: <span class="code-keyword">new</span> <span
-          class="code-func">Date</span>().<span class="code-func">toLocaleTimeString</span>(),
-                <span class="code-var">payload</span>: <span class="code-var">data</span>.<span
-          class="code-var">payload</span>,
-              });
-            } <span class="code-keyword">else</span> {
-              <span class="code-keyword">console</span>.<span class="code-func">error</span>(<span
-          class="code-string">"API Error"</span>, <span class="code-var">data</span>.<span
-          class="code-var">error</span>);
-            }
-        };
-        <span class="code-keyword">export default</span> <span class="code-var">updateState</span>;
-      </div>
-      <div class="terminal-card">
-         <span style="color: #fff;">appsqueeze</span>@<span
-          style="color: #7c27ce;">dev</span>:~/project $<span style="color: #38d6b8;"> npm run build:prod</span>
-        <br>
-        <span style="color: #a3a3a3;">&gt; Build optimized... (94%)</span>
-        <br>
-        <span style="color: #38d6b8;">&gt; Complete in 1.4s. Deploying...</span><span class="terminal-caret">|</span>
-      </div>
+                    <button id="start-btn" class="cta" type="button">Start Your Project</button>
+                </div>
+
+                <div class="right" role="region" aria-label="company metrics">
+                    <div class="cards" role="list">
+                        <div class="card" role="listitem" aria-labelledby="n1 lbl1">
+                            <div id="n1" class="number">200+</div>
+                            <div id="lbl1" class="label">Products in Build</div>
+                            <div class="card-hover-content">
+                            </div>
+                        </div>
+
+                        <div class="card" role="listitem" aria-labelledby="n2 lbl2">
+                            <div id="n2" class="number">14+</div>
+                            <div id="lbl2" class="label">Happy Clients</div>
+                            <div class="card-hover-content">
+                            </div>
+                        </div>
+
+                        <div class="card" role="listitem" aria-labelledby="n3 lbl3">
+                            <div id="n3" class="number">10+</div>
+                            <div id="lbl3" class="label">Creative People</div>
+                            <div class="card-hover-content">
+                            </div>
+                        </div>
+
+                        <div class="card" role="listitem" aria-labelledby="n4 lbl4">
+                            <div id="n4" class="number">9+</div>
+                            <div id="lbl4" class="label">Years of Experience</div>
+                            <div class="card-hover-content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decor-left" aria-hidden="true"></div>
+            <div class="decor-right" aria-hidden="true"></div>
+        </section>
     </div>
-  </section>
+    </div>
+      <div class="why-stand-out-container">
+  <div class="why-stand-out">
+    <section class="panel1" aria-labelledby="why-we-stand">
+      <div class="layout">
+        <div class="left">
+          <div class="badge"><span class="dot" aria-hidden="true"></span> We are the best choice</div>
 
+          <h1 id="why-we-stand" class="headline">
+            Why We <span class="highlight">Stand Out</span> as a<br/> Leading Development Agency
+          </h1>
 
+          <p class="lead" id="left-paragraph">
+            We pride ourselves on being the go-to partner for businesses seeking top-notch development solutions. We deliver reliable, scalable and maintainable products with a focus on quality and collaboration.
+          </p>
+
+          <button id="start" class="cta1" type="button">Start Your Project</button>
+             <div class="card-large" role="article" aria-labelledby="card-large-heading">
+            <div class="tag">Our Products</div>
+            <h3 id="card-large-heading">Quality and Attention to Detail</h3>
+            <p id="card-large-text">
+              Highlight the agency's expertise and experience in the field of development. Mention the number of years the agency has been operating, the range of projects they have worked on, and the skills and qualifications of their team members.
+            </p>
+          </div>
+        </div>
+
+        <div class="right" role="region" aria-label="features and details">
+       
+
+          <!-- stacked vertical small cards (up and down) aligned to the right to match the picture -->
+          <div class="stacked-cards" role="list" aria-label="secondary cards stacked vertically">
+            <article class="card1" role="listitem" aria-labelledby="card-a-heading">
+              <div class="tag">Our Services</div>
+              <h4 id="card-a-heading">Expertise and Experienced</h4>
+              <p id="card-a-text">
+                Highlight the agency's expertise and experience in the field of development. Mention the number of years the agency has been operating, the range of projects they have worked on, and the skills and qualifications of their team members.
+              </p>
+            </article>
+
+            <article class="card1" role="listitem" aria-labelledby="card-b-heading">
+              <div class="tag">Our Support</div>
+              <h4 id="card-b-heading">Communications and Support</h4>
+              <p id="card-b-text">
+                Emphasize the agency's commitment to collaboration and transparent communication throughout the development process. Highlight the agency's approach to working closely with clients, involving them in decision-making, and providing regular progress updates.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+   <div class="review-wrap-section">
+  <div class="review-wrap">
+    <section class="review-review-section" aria-labelledby="reviews-heading">
+      <div class="review-grid">
+        <div class="review-left review-fade-in" id="left-col">
+          <div class="review-badge"><span class="review-emoji">💬</span> <span style="opacity:.95">What they said</span></div>
+          <h2 class="review-title" id="reviews-heading">Our Beloved <span class="review-accent">Customer</span></h2>
+          <p class="review-subtitle" id="left-sub">
+            With our expertise and dedication, we are committed to delivering exceptional services that meet your unique needs.
+          </p>
+
+          <button class="review-cta" id="start-project">Start Your Project</button>
+        </div>
+
+        <div class="review-right review-fade-in" id="right-col" aria-live="polite">
+          <div class="review-cards-stack" id="cards-stack" role="region" aria-label="Customer reviews">
+            <div class="review-card-layer review-l3" aria-hidden="true"></div>
+            <div class="review-card-layer review-l2" aria-hidden="true"></div>
+            <div class="review-card-layer review-l1" aria-hidden="true"></div>
+
+            <article class="review-card" id="active-card" role="article" aria-labelledby="company-title">
+              <h3 class="review-company" id="company-title">Volkswagen</h3>
+              <blockquote id="company-quote">
+                "The agency is passionate about helping clients navigate the complex processes of regulatory compliance and achieve their business goals. They have an experienced team of consultants who work closely with clients to understand their unique needs and provide customised solutions tailored to their specific requirements."
+              </blockquote>
+
+              <div class="review-meta">
+                <div class="review-avatar" aria-hidden="true">
+                  <img id="author-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60" alt="Andrew Jameson">
+                </div>
+                <div>
+                  <div class="review-name" id="author-name">Andrew Jameson</div>
+                  <div class="review-role" id="author-role">Product Owner at Volkswagen</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="review-controls" aria-hidden="false">
+            <button class="review-arrow-btn" id="prev" aria-label="Previous review"><i class="fas fa-arrow-left"></i></button>
+            <button class="review-arrow-btn" id="next" aria-label="Next review"><i class="fas fa-arrow-right"></i></button>
+          </div>
+          
+          <div class="review-review-counter" aria-live="polite">
+            <span id="current-review">1</span> / <span id="total-reviews">3</span>
+          </div>
+
+          <div class="review-underline" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  </div>
+    <div class="footer">
+    <footer class="site-footer" role="contentinfo" aria-labelledby="footer-heading">
+      <div class="footer-grid" role="grid">
+        <!-- Brand / Intro -->
+        <div class="footer-brand" role="gridcell">
+          <div class="brand-title">
+            <span class="brand-badge" aria-hidden="true">Experience Excellence</span>
+            <span style="font-size:18px">YourCompany</span>
+          </div>
+          <div class="brand-desc">
+            We build delightful products and experiences — reliable, secure and tailored to your needs. Reach out and let's create something great together.
+          </div>
+          <div style="margin-top:8px;">
+            <a class="pill" href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> contact@yourcompany.example</a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-links" role="gridcell" aria-label="Footer links">
+          <div class="links-col" aria-labelledby="links-1">
+            <h4 id="links-1">Services</h4>
+            <a href="#web">Web Development</a>
+            <a href="#wordpress">WordPress</a>
+            <a href="#seo">SEO</a>
+            <a href="#system">System Management</a>
+          </div>
+
+          <div class="links-col" aria-labelledby="links-2">
+            <h4 id="links-2">Company</h4>
+            <a href="#about">About Us</a>
+            <a href="#careers">Careers</a>
+            <a href="#blog">Blog</a>
+            <a href="#privacy">Privacy</a>
+          </div>
+        </div>
+
+        <!-- Newsletter / CTA -->
+        <div class="footer-newsletter" role="gridcell">
+          <div class="newsletter-title">Join our newsletter</div>
+          <div class="newsletter-desc">Get product updates, tips, and insights — delivered monthly. No spam, unsubscribe anytime.</div>
+
+          <form id="newsletter-form" class="newsletter-form" aria-label="Subscribe to newsletter">
+            <input id="email-input" class="input" type="email" placeholder="Your email address" aria-label="Email address" required>
+            <button type="submit" class="btn-sub" id="subscribe-btn">Subscribe</button>
+          </form>
+
+          <div id="subscription-msg" aria-live="polite" style="color:#cfc6ff; font-size:13px; margin-top:6px;"></div>
+        </div>
+      </div>
+
+      <div class="footer-bottom" role="presentation">
+        <div class="socials" aria-label="Social links">
+          <a class="social" href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+          <a class="social" href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+          <a class="social" href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a class="social" href="https://github.com" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        </div>
+
+        <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+          <div class="copyright">© <span id="year"></span> YourCompany. All rights reserved.</div>
+          <div style="opacity:0.9; color:#cfc6ff; font-size:13px;">Made with <span style="color:#ff6aa4">♥</span> & attention to detail</div>
+        </div>
+      </div>
+    </footer>
+
+</div>
 </body>
 <script src="./js/script.js"></script>
 
