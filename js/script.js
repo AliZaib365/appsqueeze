@@ -1,4 +1,5 @@
-    document.addEventListener('DOMContentLoaded', () => {
+
+      document.addEventListener('DOMContentLoaded', () => {
       const navbar = document.getElementById('navbar');
       const menuToggle = document.getElementById('menuToggle');
       const sidebar = document.getElementById('sidebar');
@@ -75,6 +76,48 @@
       // Performance optimization: Reduce animations if user prefers reduced motion
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.style.setProperty('--transition', 'none');
+      }
+      
+      // Enhanced scroll animations for all sections
+      const animatedSections = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedSections.forEach(section => {
+        sectionObserver.observe(section);
+      });
+      
+      // Animate stats bars when they come into view
+      const statsBars = document.querySelectorAll('.stats-bar');
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      statsBars.forEach(bar => {
+        statsObserver.observe(bar);
+      });
+      
+      // Animate footer when it comes into view
+      const footer = document.querySelector('.site-footer');
+      const footerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      if (footer) {
+        footerObserver.observe(footer);
       }
     });
  document.addEventListener('DOMContentLoaded', function() {

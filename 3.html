@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Got An Idea — Enhanced Orange CTA</title>
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset & base */
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0;
+    }
+    
+    html, body { 
+      height: 100%; 
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+      -webkit-font-smoothing: antialiased; 
+      -moz-osx-font-smoothing: grayscale; 
+      background: linear-gradient(135deg, #fef7f0 0%, #fafafa 100%);
+      color: #111827; 
+      line-height: 1.5;
+    }
+
+    /* Section layout - wider and shorter */
+    .cta-section {
+      padding: clamp(20px, 4vw, 40px) 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh; /* Reduced height */
+    }
+
+    /* Wider container */
+    .cta-container {
+      width: 100%;
+      max-width: 1400px; /* Increased max-width for wider layout */
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Enhanced card design - wider and shorter */
+    .cta-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 50px; /* Increased gap for wider layout */
+      align-items: center;
+      background: linear-gradient(135deg, #ff8c2b 0%, #ff6f2f 100%);
+      border-radius: 20px;
+      padding: clamp(28px, 3vw, 40px) clamp(40px, 5vw, 80px); /* Reduced vertical padding */
+      box-shadow: 
+        0 20px 60px rgba(255, 107, 0, 0.25),
+        0 4px 24px rgba(255, 107, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+      min-height: 140px; /* Reduced min-height */
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                  box-shadow 0.4s ease;
+    }
+
+    .cta-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 30px 80px rgba(255, 107, 0, 0.3),
+        0 8px 32px rgba(255, 107, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+
+    /* Subtle pattern overlay */
+    .cta-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+      pointer-events: none;
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    /* Ensure content sits above overlay */
+    .cta-left, .cta-right { 
+      position: relative; 
+      z-index: 2; 
+    }
+
+    /* Title styling - optimized for shorter height */
+    .cta-title {
+      margin: 0;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: clamp(28px, 3.5vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.8px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .cta-subtitle {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      font-size: clamp(16px, 1.6vw, 18px);
+      line-height: 1.4;
+      max-width: 700px; /* Increased for wider layout */
+    }
+
+    .cta-title-break {
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* Enhanced CTA button with color-fill hover animation */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 34px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      color: #ff8c2b;
+      background: rgba(255, 255, 255, 0.95);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(255, 140, 43, 0.15);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Color fill animation background */
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff8c2b 0%, #ff6f2f 100%);
+      z-index: -1;
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    /* Shine overlay effect */
+    .cta-button::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(30deg);
+      transition: left 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: -1;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.18),
+        0 8px 20px rgba(255, 140, 43, 0.25);
+      color: #ffffff;
+    }
+
+    /* Color fill animation on hover */
+    .cta-button:hover::before {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Shine animation on hover */
+    .cta-button:hover::after {
+      left: 120%;
+    }
+
+    .cta-button:active {
+      transform: translateY(-1px);
+      transition-duration: 0.1s;
+    }
+
+    .cta-button-label {
+      color: inherit;
+      position: relative;
+      z-index: 1;
+      transition: color 0.3s 0.1s;
+    }
+
+    /* Enhanced dot with arrow */
+    .cta-dot {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff8c2b 0%, #ff6f2f 100%);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      box-shadow: 
+        0 6px 16px rgba(255, 107, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Button hover effect for dot */
+    .cta-button:hover .cta-dot {
+      transform: rotate(90deg) scale(1.1);
+      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+      color: #ff6f2f;
+      box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Responsive: stack on medium screens */
+    @media (max-width: 1100px) {
+      .cta-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+        padding: 36px 40px;
+      }
+
+      .cta-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-right {
+        margin-top: 4px;
+      }
+      
+      .cta-button {
+        justify-content: center;
+        width: fit-content;
+        margin: 0 auto;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (max-width: 768px) {
+      .cta-section {
+        min-height: 50vh;
+        padding: 20px 16px;
+      }
+      
+      .cta-container {
+        padding: 0 16px;
+      }
+      
+      .cta-card {
+        padding: 30px 28px;
+        border-radius: 18px;
+        gap: 28px;
+        min-height: 130px;
+      }
+      
+      .cta-title {
+        font-size: 26px;
+      }
+      
+      .cta-subtitle {
+        font-size: 16px;
+        margin-top: 8px;
+      }
+      
+      .cta-button {
+        padding: 15px 30px;
+        font-size: 16px;
+      }
+      
+      .cta-dot {
+        height: 44px;
+        width: 44px;
+        font-size: 18px;
+      }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      .cta-card { 
+        padding: 24px 20px; 
+        border-radius: 16px; 
+        gap: 24px;
+        min-height: 120px;
+      }
+      
+      .cta-section {
+        min-height: 40vh;
+      }
+      
+      .cta-title { 
+        font-size: 24px; 
+        line-height: 1.2;
+      }
+      
+      .cta-subtitle {
+        font-size: 15px;
+        margin-top: 6px;
+      }
+      
+      .cta-button { 
+        padding: 14px 26px; 
+        gap: 12px; 
+        font-size: 15px;
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .cta-dot { 
+        height: 40px; 
+        width: 40px; 
+        font-size: 16px; 
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 360px) {
+      .cta-card { 
+        padding: 20px 16px; 
+      }
+      
+      .cta-title { 
+        font-size: 22px; 
+      }
+      
+      .cta-button { 
+        padding: 12px 20px; 
+        font-size: 14px;
+      }
+      
+      .cta-dot { 
+        height: 36px; 
+        width: 36px; 
+        font-size: 14px; 
+      }
+    }
+
+    /* Animation for page load */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .cta-card {
+      animation: fadeInUp 0.7s ease-out both;
+    }
+
+    .cta-right {
+      animation: slideInRight 0.7s ease-out 0.2s both;
+    }
+
+    /* Focus accessibility */
+    .cta-button:focus-visible {
+      outline: 2px solid #ffffff;
+      outline-offset: 4px;
+      box-shadow: 
+        0 0 0 4px rgba(255, 140, 43, 0.3),
+        0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .cta-card,
+      .cta-right,
+      .cta-button,
+      .cta-button::before,
+      .cta-button::after,
+      .cta-dot {
+        transition: none !important;
+        animation: none !important;
+      }
+      
+      .cta-button:hover .cta-dot {
+        transform: none;
+      }
+      
+      .cta-button:hover::before,
+      .cta-button:hover::after {
+        transform: none;
+      }
+    }
+
+    /* Decorative corner accents */
+    .cta-card::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 20px 0 0 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Bottom right decorative accent */
+    .cta-card .corner-accent {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 0 0 20px 0;
+      background: linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
+      bottom: 0;
+      right: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-card" role="region" aria-label="Contact call to action">
+        <div class="corner-accent"></div>
+        <div class="cta-left">
+          <h2 class="cta-title">
+            Got An Idea Or Concerns?
+            <span class="cta-title-break">Let's Discuss.</span>
+          </h2>
+          <p class="cta-subtitle">
+            Share your thoughts with us. Our team is ready to help you bring your ideas to life or address any questions you might have.
+          </p>
+        </div>
+
+        <div class="cta-right">
+          <a class="cta-button" href="#" id="ctaExplore" aria-label="Explore more options">
+            <span class="cta-button-label">Explore More</span>
+            <span class="cta-dot" aria-hidden="true">➜</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Add interactive functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctaButton = document.getElementById('ctaExplore');
+      const ctaCard = document.querySelector('.cta-card');
+      const ctaDot = document.querySelector('.cta-dot');
+      
+      // Add click animation with enhanced feedback
+      ctaButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Enhanced ripple effect with orange color
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(255, 140, 43, 0.6);
+          transform: scale(0);
+          animation: ripple 0.7s ease-out;
+          width: ${size}px;
+          height: ${size}px;
+          top: ${y}px;
+          left: ${x}px;
+          pointer-events: none;
+          z-index: 0;
+        `;
+        
+        this.appendChild(ripple);
+        
+        // Bounce animation for the dot
+        ctaDot.style.animation = 'bounce 0.5s ease';
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+          ripple.remove();
+        }, 700);
+        
+        // Reset dot animation
+        setTimeout(() => {
+          ctaDot.style.animation = '';
+        }, 500);
+        
+        // Simulate navigation (in a real scenario, this would navigate)
+        console.log('CTA clicked - would navigate to contact page');
+        
+        // Add a temporary visual feedback on the card
+        ctaCard.style.transform = 'scale(0.99)';
+        setTimeout(() => {
+          ctaCard.style.transform = '';
+        }, 200);
+      });
+      
+      // Add hover effect to the entire card
+      ctaCard.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-4px)';
+      });
+      
+      ctaCard.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+      
+      // Add CSS for animations
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes ripple {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+        
+        @keyframes bounce {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.15); }
+        }
+        
+        /* Add subtle pulse animation to the card */
+        @keyframes subtlePulse {
+          0%, 100% { box-shadow: 
+            0 20px 60px rgba(255, 107, 0, 0.25),
+            0 4px 24px rgba(255, 107, 0, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15); 
+          }
+          50% { box-shadow: 
+            0 20px 60px rgba(255, 107, 0, 0.28),
+            0 4px 24px rgba(255, 107, 0, 0.18),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15); 
+          }
+        }
+        
+        .cta-card {
+          animation: subtlePulse 3s ease-in-out infinite;
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
+</body>
+</html>
