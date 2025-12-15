@@ -1,577 +1,827 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Got An Idea — Enhanced Orange CTA</title>
+  <title>Engagement Models — Enhanced Orange Theme</title>
 
   <!-- Inter font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset & base */
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
+    /* ===== CSS RESET & GLOBAL STYLES ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
       padding: 0;
     }
-    
-    html, body { 
-      height: 100%; 
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-      -webkit-font-smoothing: antialiased; 
-      -moz-osx-font-smoothing: grayscale; 
-      background: linear-gradient(135deg, #fef7f0 0%, #fafafa 100%);
-      color: #111827; 
-      line-height: 1.5;
+
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* Section layout - wider and shorter */
-    .cta-section {
-      padding: clamp(20px, 4vw, 40px) 20px;
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: #fafafa;
+      color: #111827;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    .section-heading {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      color: #111827;
+      text-align: center;
+    }
+
+    .section-heading .accent {
+      color: #ff8c2b;
+      background: linear-gradient(90deg, #ff8c2b, #ff6f2f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-sub {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: #6b7280;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* ===== LAYOUT ===== */
+    .engagement-section {
+      padding: clamp(3rem, 6vw, 6rem) 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 60vh; /* Reduced height */
+      min-height: 100vh;
     }
 
-    /* Wider container */
-    .cta-container {
+    .container {
       width: 100%;
-      max-width: 1400px; /* Increased max-width for wider layout */
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
     }
 
-    /* Enhanced card design - wider and shorter */
-    .cta-card {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 50px; /* Increased gap for wider layout */
-      align-items: center;
-      background: linear-gradient(135deg, #ff8c2b 0%, #ff6f2f 100%);
-      border-radius: 20px;
-      padding: clamp(28px, 3vw, 40px) clamp(40px, 5vw, 80px); /* Reduced vertical padding */
-      box-shadow: 
-        0 20px 60px rgba(255, 107, 0, 0.25),
-        0 4px 24px rgba(255, 107, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-      position: relative;
+    /* ===== CARD STYLES ===== */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
       overflow: hidden;
-      min-height: 140px; /* Reduced min-height */
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  box-shadow 0.4s ease;
+      box-shadow: 0 20px 60px rgba(17, 24, 39, 0.08);
+      border: 1px solid rgba(17, 24, 39, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .cta-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 
-        0 30px 80px rgba(255, 107, 0, 0.3),
-        0 8px 32px rgba(255, 107, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 80px rgba(17, 24, 39, 0.12);
     }
 
-    /* Subtle pattern overlay */
-    .cta-card::before {
+    /* ===== TABS STYLES ===== */
+    .tabs-container {
+      position: relative;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 1.5rem 1.5rem 0;
+      justify-content: center;
+      border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+    }
+
+    .tab {
+      background: transparent;
+      border: none;
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      color: #6b7280;
+      cursor: pointer;
+      position: relative;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      flex: 1;
+      min-width: 180px;
+      max-width: 240px;
+    }
+
+    .tab:hover {
+      background: rgba(255, 140, 43, 0.08);
+      color: #ff8c2b;
+    }
+
+    .tab:focus {
+      outline: 3px solid rgba(255, 140, 43, 0.3);
+      outline-offset: 2px;
+    }
+
+    .tab.active {
+      color: #111827;
+      font-weight: 700;
+      background: rgba(255, 140, 43, 0.1);
+    }
+
+    .tab.active::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background-image: 
-        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 85% 75%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
-        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
-      pointer-events: none;
-      border-radius: 20px;
-      z-index: 1;
+      left: 20%;
+      right: 20%;
+      bottom: -1px;
+      height: 4px;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(90deg, #ff8c2b, #ff6f2f);
     }
 
-    /* Ensure content sits above overlay */
-    .cta-left, .cta-right { 
-      position: relative; 
-      z-index: 2; 
-    }
-
-    /* Title styling - optimized for shorter height */
-    .cta-title {
-      margin: 0;
-      color: #ffffff;
-      font-weight: 800;
-      font-size: clamp(28px, 3.5vw, 42px);
-      line-height: 1.1;
-      letter-spacing: -0.8px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .cta-subtitle {
-      margin-top: 10px;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-      font-size: clamp(16px, 1.6vw, 18px);
-      line-height: 1.4;
-      max-width: 700px; /* Increased for wider layout */
-    }
-
-    .cta-title-break {
-      display: block;
-      margin-top: 5px;
-    }
-
-    /* Enhanced CTA button with color-fill hover animation */
-    .cta-button {
-      display: inline-flex;
+    /* ===== PANEL LAYOUT ===== */
+    .panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding: 3rem;
       align-items: center;
-      gap: 16px;
-      padding: 16px 34px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 17px;
-      color: #ff8c2b;
-      background: rgba(255, 255, 255, 0.95);
-      border: 2px solid rgba(255, 255, 255, 0.95);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 
-        0 8px 24px rgba(0, 0, 0, 0.12),
-        0 4px 12px rgba(255, 140, 43, 0.15);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
     }
 
-    /* Color fill animation background */
-    .cta-button::before {
-      content: '';
+    /* ===== LEFT CONTENT STYLES ===== */
+    .panel-left {
+      text-align: left;
+      padding-right: 1rem;
+    }
+
+    .panel-title {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .panel-intro {
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      color: #6b7280;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.5rem;
+    }
+
+    .checklist li {
+      padding: 0.75rem 0 0.75rem 3rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      color: #374151;
+      font-size: clamp(0.95rem, 1.5vw, 1rem);
+      transition: transform 0.2s ease;
+    }
+
+    .checklist li:hover {
+      transform: translateX(5px);
+    }
+
+    .checklist li::before {
+      content: "✓";
       position: absolute;
-      top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #ff8c2b 0%, #ff6f2f 100%);
-      z-index: -1;
-      border-radius: 999px;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-
-    /* Shine overlay effect */
-    .cta-button::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 40%;
-      height: 200%;
-      background: rgba(255, 255, 255, 0.3);
-      transform: rotate(30deg);
-      transition: left 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-      z-index: -1;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 
-        0 16px 40px rgba(0, 0, 0, 0.18),
-        0 8px 20px rgba(255, 140, 43, 0.25);
-      color: #ffffff;
-    }
-
-    /* Color fill animation on hover */
-    .cta-button:hover::before {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
-
-    /* Shine animation on hover */
-    .cta-button:hover::after {
-      left: 120%;
-    }
-
-    .cta-button:active {
-      transform: translateY(-1px);
-      transition-duration: 0.1s;
-    }
-
-    .cta-button-label {
-      color: inherit;
-      position: relative;
-      z-index: 1;
-      transition: color 0.3s 0.1s;
-    }
-
-    /* Enhanced dot with arrow */
-    .cta-dot {
-      height: 48px;
-      width: 48px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(180deg, #ff8c2b, #ff6f2f);
+      color: #fff;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ff8c2b 0%, #ff6f2f 100%);
-      color: #ffffff;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 20px;
-      box-shadow: 
-        0 6px 16px rgba(255, 107, 0, 0.3),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(255, 140, 43, 0.2);
+    }
+
+    /* ===== BUTTON STYLES ===== */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 999px;
+      border: 2px solid #ff8c2b;
+      color: #ff8c2b;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: linear-gradient(90deg, #ff8c2b, #ff6f2f);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255, 140, 43, 0.25);
+    }
+
+    /* ===== RIGHT MEDIA STYLES ===== */
+    .panel-right {
       position: relative;
-      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* Button hover effect for dot */
-    .cta-button:hover .cta-dot {
-      transform: rotate(90deg) scale(1.1);
-      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-      color: #ff6f2f;
-      box-shadow: 
-        0 8px 20px rgba(0, 0, 0, 0.2),
-        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    .media-wrapper {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 20px 50px rgba(2, 6, 23, 0.15);
+      position: relative;
     }
 
-    /* Responsive: stack on medium screens */
-    @media (max-width: 1100px) {
-      .cta-card {
+    .media-wrapper video {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #000;
+      transition: transform 0.5s ease;
+    }
+
+    .media-wrapper:hover video {
+      transform: scale(1.02);
+    }
+
+    /* ===== PLAY OVERLAY ===== */
+    .play-overlay {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(180deg, #ff8c2b, #ff6f2f);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      box-shadow: 0 8px 20px rgba(255, 140, 43, 0.3);
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .play-overlay:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(255, 140, 43, 0.4);
+    }
+
+    .play-overlay .dot {
+      font-size: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    /* ===== LOADING INDICATOR ===== */
+    .video-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top-color: #ff8c2b;
+      animation: spin 1s linear infinite;
+      z-index: 5;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* ===== MOBILE NAVIGATION DOTS ===== */
+    .mobile-dots {
+      display: none;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .dot-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d1d5db;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .dot-indicator.active {
+      background: #ff8c2b;
+      transform: scale(1.2);
+    }
+
+    /* ===== RESPONSIVE BREAKPOINTS ===== */
+    
+    /* Tablet and below */
+    @media (max-width: 1024px) {
+      .panel {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2.5rem;
+      }
+      
+      .panel-left {
         text-align: center;
-        gap: 32px;
-        padding: 36px 40px;
-      }
-
-      .cta-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .cta-right {
-        margin-top: 4px;
+        padding-right: 0;
       }
       
-      .cta-button {
-        justify-content: center;
-        width: fit-content;
-        margin: 0 auto;
+      .checklist li {
+        padding-left: 0;
+        text-align: center;
+      }
+      
+      .checklist li::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -2.5rem;
+      }
+      
+      .media-wrapper {
+        max-width: 700px;
       }
     }
-
-    /* Tablet adjustments */
+    
+    /* Mobile landscape and smaller tablets */
     @media (max-width: 768px) {
-      .cta-section {
-        min-height: 50vh;
-        padding: 20px 16px;
+      .engagement-section {
+        padding: 2.5rem 1rem;
       }
       
-      .cta-container {
-        padding: 0 16px;
+      .tabs {
+        padding: 1rem 1rem 0;
       }
       
-      .cta-card {
-        padding: 30px 28px;
-        border-radius: 18px;
-        gap: 28px;
-        min-height: 130px;
+      .tab {
+        min-width: 140px;
+        padding: 0.875rem 1rem;
       }
       
-      .cta-title {
-        font-size: 26px;
+      .panel {
+        padding: 1.5rem;
+        gap: 2rem;
       }
       
-      .cta-subtitle {
-        font-size: 16px;
-        margin-top: 8px;
-      }
-      
-      .cta-button {
-        padding: 15px 30px;
-        font-size: 16px;
-      }
-      
-      .cta-dot {
-        height: 44px;
-        width: 44px;
-        font-size: 18px;
+      .mobile-dots {
+        display: flex;
       }
     }
-
-    /* Mobile adjustments */
+    
+    /* Mobile portrait */
     @media (max-width: 480px) {
-      .cta-card { 
-        padding: 24px 20px; 
-        border-radius: 16px; 
-        gap: 24px;
-        min-height: 120px;
+      .engagement-section {
+        padding: 2rem 0.75rem;
       }
       
-      .cta-section {
-        min-height: 40vh;
+      .section-heading {
+        font-size: 1.75rem;
       }
       
-      .cta-title { 
-        font-size: 24px; 
-        line-height: 1.2;
+      .tabs {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
       }
       
-      .cta-subtitle {
-        font-size: 15px;
-        margin-top: 6px;
-      }
-      
-      .cta-button { 
-        padding: 14px 26px; 
-        gap: 12px; 
-        font-size: 15px;
+      .tab {
+        max-width: 100%;
         width: 100%;
-        max-width: 300px;
       }
       
-      .cta-dot { 
-        height: 40px; 
-        width: 40px; 
-        font-size: 16px; 
+      .panel {
+        padding: 1.25rem;
+      }
+      
+      .checklist li::before {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+        top: -2rem;
+      }
+      
+      .play-overlay {
+        left: 1rem;
+        bottom: 1rem;
+        padding: 0.625rem 1rem;
+        font-size: 0.75rem;
       }
     }
-
-    /* Very small screens */
+    
+    /* Very small devices */
     @media (max-width: 360px) {
-      .cta-card { 
-        padding: 20px 16px; 
+      .tabs {
+        padding: 0.75rem 0.75rem 0;
       }
       
-      .cta-title { 
-        font-size: 22px; 
+      .panel {
+        padding: 1rem;
       }
       
-      .cta-button { 
-        padding: 12px 20px; 
-        font-size: 14px;
+      .btn-outline {
+        padding: 0.75rem 1.25rem;
       }
-      
-      .cta-dot { 
-        height: 36px; 
-        width: 36px; 
-        font-size: 14px; 
-      }
-    }
-
-    /* Animation for page load */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .cta-card {
-      animation: fadeInUp 0.7s ease-out both;
-    }
-
-    .cta-right {
-      animation: slideInRight 0.7s ease-out 0.2s both;
-    }
-
-    /* Focus accessibility */
-    .cta-button:focus-visible {
-      outline: 2px solid #ffffff;
-      outline-offset: 4px;
-      box-shadow: 
-        0 0 0 4px rgba(255, 140, 43, 0.3),
-        0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    /* Reduced motion preference */
-    @media (prefers-reduced-motion: reduce) {
-      .cta-card,
-      .cta-right,
-      .cta-button,
-      .cta-button::before,
-      .cta-button::after,
-      .cta-dot {
-        transition: none !important;
-        animation: none !important;
-      }
-      
-      .cta-button:hover .cta-dot {
-        transform: none;
-      }
-      
-      .cta-button:hover::before,
-      .cta-button:hover::after {
-        transform: none;
-      }
-    }
-
-    /* Decorative corner accents */
-    .cta-card::after {
-      content: "";
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      border-radius: 20px 0 0 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Bottom right decorative accent */
-    .cta-card .corner-accent {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-radius: 0 0 20px 0;
-      background: linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
-      bottom: 0;
-      right: 0;
-      pointer-events: none;
-      z-index: 1;
     }
   </style>
 </head>
-<body>
-  <section class="cta-section">
-    <div class="cta-container">
-      <div class="cta-card" role="region" aria-label="Contact call to action">
-        <div class="corner-accent"></div>
-        <div class="cta-left">
-          <h2 class="cta-title">
-            Got An Idea Or Concerns?
-            <span class="cta-title-break">Let's Discuss.</span>
-          </h2>
-          <p class="cta-subtitle">
-            Share your thoughts with us. Our team is ready to help you bring your ideas to life or address any questions you might have.
-          </p>
-        </div>
 
-        <div class="cta-right">
-          <a class="cta-button" href="#" id="ctaExplore" aria-label="Explore more options">
-            <span class="cta-button-label">Explore More</span>
-            <span class="cta-dot" aria-hidden="true">➜</span>
-          </a>
+<body>
+  <main>
+    <section style="z-index: 1000; position: relative; background-color: white;">
+    <section class="engagement-section" aria-labelledby="engagementTitle">
+      <div class="container">
+        <h1 id="engagementTitle" class="section-heading">
+          Engagement <span class="accent">Models</span>
+        </h1>
+        <p class="section-sub">Choose from flexible engagement models tailored to your needs, ensuring seamless collaboration with time & material or dedicated teams.</p>
+
+        <div class="card">
+          <!-- Tabs Navigation -->
+          <div class="tabs-container">
+            <nav class="tabs" role="tablist" aria-label="Engagement categories">
+              <button class="tab active" role="tab" aria-selected="true" data-index="0">
+                Product Development
+              </button>
+              <button class="tab" role="tab" aria-selected="false" data-index="1">
+                Managed IT Systems
+              </button>
+              <button class="tab" role="tab" aria-selected="false" data-index="2">
+                Team Augmentation
+              </button>
+            </nav>
+
+            <!-- Content Panel -->
+            <div class="panel">
+              <!-- Left: Text Content -->
+              <div class="panel-left" id="panelLeft">
+                <h2 id="panelTitle" class="panel-title">Product Development</h2>
+                <p id="panelIntro" class="panel-intro">Transforming your ideas into ready-to-launch products with our end-to-end development expertise.</p>
+
+                <ul id="panelList" class="checklist">
+                  <li>Early Growth Stage or Stealth Startup</li>
+                  <li>Product Development Roadmap</li>
+                  <li>MVP Development</li>
+                  <li>Prototypes / POC</li>
+                </ul>
+
+                <div class="panel-actions">
+                  <a id="viewDetails" class="btn-outline" href="#product-details" target="_blank" rel="noopener">
+                    View Details 
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right: Video Content -->
+              <div class="panel-right">
+                <div class="media-wrapper">
+                  <div class="video-loading" id="videoLoading" style="display: none;"></div>
+                  <video id="categoryVideo" controls preload="metadata" poster="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" playsinline>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-developer-working-on-code-5099-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+
+                  <!-- Play Button Overlay -->
+                  <button id="playOverlay" class="play-overlay" aria-label="Play video">
+                    <span class="dot">▶</span> Play Video
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Mobile Navigation Dots -->
+            <div class="mobile-dots">
+              <button class="dot-indicator active" data-index="0" aria-label="Go to Product Development"></button>
+              <button class="dot-indicator" data-index="1" aria-label="Go to Managed IT Systems"></button>
+              <button class="dot-indicator" data-index="2" aria-label="Go to Team Augmentation"></button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
+  </main>
+<script>
+  // Engagement Models Viewer - Enhanced with super responsive features
+  const categories = [
+    {
+      id: 'product',
+      title: 'Product Development',
+      intro: 'Transforming your ideas into ready-to-launch products with our end-to-end development expertise.',
+      bullets: [
+        'Early Growth Stage or Stealth Startup',
+        'Product Development Roadmap',
+        'MVP Development',
+        'Prototypes / POC'
+      ],
+      // Replace with your actual video URLs
+      video: 'https://assets.mixkit.co/videos/preview/mixkit-developer-working-on-code-5099-large.mp4',
+      poster: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      details: '#product-details'
+    },
+    {
+      id: 'managed',
+      title: 'Managed IT Systems',
+      intro: 'Maintain and scale reliable IT systems with proactive monitoring and dedicated ops teams.',
+      bullets: [
+        '24/7 Infrastructure Monitoring',
+        'Managed Cloud Platforms',
+        'Security & Compliance Support',
+        'Proactive Incident Management'
+      ],
+      // Replace with your actual video URLs
+      video: 'https://assets.mixkit.co/videos/preview/mixkit-server-racks-in-a-datacenter-40932-large.mp4',
+      poster: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      details: '#managed-details'
+    },
+    {
+      id: 'augmentation',
+      title: 'Team Augmentation',
+      intro: 'Extend your team rapidly with vetted engineers and domain experts to accelerate delivery.',
+      bullets: [
+        'Flexible Resource Scaling',
+        'Domain-Aligned Engineers',
+        'Short Ramp-Up Time',
+        'Seamless Collaboration with Your PMs'
+      ],
+      // Replace with your actual video URLs
+      video: 'https://assets.mixkit.co/videos/preview/mixkit-business-team-working-together-4380-large.mp4',
+      poster: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      details: '#augmentation-details'
+    }
+  ];
 
-  <script>
-    // Add interactive functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const ctaButton = document.getElementById('ctaExplore');
-      const ctaCard = document.querySelector('.cta-card');
-      const ctaDot = document.querySelector('.cta-dot');
-      
-      // Add click animation with enhanced feedback
-      ctaButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Enhanced ripple effect with orange color
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.cssText = `
-          position: absolute;
-          border-radius: 50%;
-          background: rgba(255, 140, 43, 0.6);
-          transform: scale(0);
-          animation: ripple 0.7s ease-out;
-          width: ${size}px;
-          height: ${size}px;
-          top: ${y}px;
-          left: ${x}px;
-          pointer-events: none;
-          z-index: 0;
-        `;
-        
-        this.appendChild(ripple);
-        
-        // Bounce animation for the dot
-        ctaDot.style.animation = 'bounce 0.5s ease';
-        
-        // Remove ripple after animation
-        setTimeout(() => {
-          ripple.remove();
-        }, 700);
-        
-        // Reset dot animation
-        setTimeout(() => {
-          ctaDot.style.animation = '';
-        }, 500);
-        
-        // Simulate navigation (in a real scenario, this would navigate)
-        console.log('CTA clicked - would navigate to contact page');
-        
-        // Add a temporary visual feedback on the card
-        ctaCard.style.transform = 'scale(0.99)';
-        setTimeout(() => {
-          ctaCard.style.transform = '';
-        }, 200);
-      });
-      
-      // Add hover effect to the entire card
-      ctaCard.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-4px)';
-      });
-      
-      ctaCard.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-      });
-      
-      // Add CSS for animations
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes ripple {
-          to {
-            transform: scale(4);
-            opacity: 0;
-          }
-        }
-        
-        @keyframes bounce {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.15); }
-        }
-        
-        /* Add subtle pulse animation to the card */
-        @keyframes subtlePulse {
-          0%, 100% { box-shadow: 
-            0 20px 60px rgba(255, 107, 0, 0.25),
-            0 4px 24px rgba(255, 107, 0, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15); 
-          }
-          50% { box-shadow: 
-            0 20px 60px rgba(255, 107, 0, 0.28),
-            0 4px 24px rgba(255, 107, 0, 0.18),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15); 
-          }
-        }
-        
-        .cta-card {
-          animation: subtlePulse 3s ease-in-out infinite;
-        }
-      `;
-      document.head.appendChild(style);
+  // DOM Elements
+  const tabs = Array.from(document.querySelectorAll('.tab'));
+  const dotIndicators = Array.from(document.querySelectorAll('.dot-indicator'));
+  const videoEl = document.getElementById('categoryVideo');
+  const playOverlay = document.getElementById('playOverlay');
+  const videoLoading = document.getElementById('videoLoading');
+  
+  const panelTitle = document.getElementById('panelTitle');
+  const panelIntro = document.getElementById('panelIntro');
+  const panelList = document.getElementById('panelList');
+  const viewDetails = document.getElementById('viewDetails');
+  
+  let currentIndex = 0;
+  let isVideoLoading = false;
+
+  // Update UI elements based on category
+  function renderCategory(index) {
+    const cat = categories[index];
+    if (!cat) return;
+
+    // Update active states for tabs
+    tabs.forEach((t, i) => {
+      const isActive = i === index;
+      t.classList.toggle('active', isActive);
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      t.setAttribute('tabindex', isActive ? '0' : '-1');
     });
-  </script>
+
+    // Update mobile dot indicators
+    dotIndicators.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+
+    // Update text content
+    panelTitle.textContent = cat.title;
+    panelIntro.textContent = cat.intro;
+
+    // Update bullet list with animation
+    panelList.innerHTML = '';
+    cat.bullets.forEach((b, i) => {
+      const li = document.createElement('li');
+      li.textContent = b;
+      li.style.opacity = '0';
+      li.style.transform = 'translateY(10px)';
+      panelList.appendChild(li);
+      
+      // Animate bullet items
+      setTimeout(() => {
+        li.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        li.style.opacity = '1';
+        li.style.transform = 'translateY(0)';
+      }, i * 100);
+    });
+
+    // Update details link
+    viewDetails.href = cat.details;
+
+    // Update video with loading state
+    loadVideo(cat);
+    
+    // Update current index
+    currentIndex = index;
+  }
+
+  // Load video with loading indicator
+  function loadVideo(category) {
+    if (isVideoLoading) return;
+    
+    isVideoLoading = true;
+    videoLoading.style.display = 'block';
+    
+    // Set poster first for immediate visual feedback
+    if (category.poster) {
+      videoEl.poster = category.poster;
+    } else {
+      videoEl.removeAttribute('poster');
+    }
+    
+    // Check if video source is already loaded
+    const currentSrc = videoEl.querySelector('source')?.src;
+    if (currentSrc === category.video) {
+      videoLoading.style.display = 'none';
+      isVideoLoading = false;
+      return;
+    }
+    
+    // Pause current video
+    videoEl.pause();
+    
+    // Create new source element
+    const source = document.createElement('source');
+    source.src = category.video;
+    source.type = 'video/mp4';
+    
+    // Remove existing sources
+    const existingSources = Array.from(videoEl.querySelectorAll('source'));
+    existingSources.forEach(s => s.remove());
+    
+    // Add new source
+    videoEl.appendChild(source);
+    
+    // Handle video loading
+    videoEl.load();
+    
+    // Show loading until video can play
+    const canPlayHandler = () => {
+      videoLoading.style.display = 'none';
+      isVideoLoading = false;
+      videoEl.removeEventListener('canplay', canPlayHandler);
+    };
+    
+    videoEl.addEventListener('canplay', canPlayHandler);
+    
+    // Fallback: hide loading after timeout
+    setTimeout(() => {
+      videoLoading.style.display = 'none';
+      isVideoLoading = false;
+    }, 3000);
+  }
+
+  // Tab click events
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const index = Number(tab.dataset.index);
+      if (index !== currentIndex) {
+        renderCategory(index);
+      }
+    });
+
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        tab.click();
+      }
+    });
+  });
+
+  // Mobile dot indicators
+  dotIndicators.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const index = Number(dot.dataset.index);
+      if (index !== currentIndex) {
+        renderCategory(index);
+        // Also activate the corresponding tab
+        tabs[index].click();
+      }
+    });
+  });
+
+  // Play overlay click
+  if (playOverlay) {
+    playOverlay.addEventListener('click', () => {
+      if (videoEl.paused) {
+        videoEl.play().then(() => {
+          playOverlay.style.opacity = '0';
+          playOverlay.style.visibility = 'hidden';
+        }).catch(() => {
+          // Autoplay blocked - keep overlay visible
+          console.log('Video play was blocked by browser policy');
+        });
+      } else {
+        videoEl.pause();
+        playOverlay.style.opacity = '1';
+        playOverlay.style.visibility = 'visible';
+      }
+    });
+  }
+
+  // Show/hide play overlay based on video state
+  videoEl.addEventListener('play', () => {
+    playOverlay.style.opacity = '0';
+    playOverlay.style.visibility = 'hidden';
+  });
+
+  videoEl.addEventListener('pause', () => {
+    playOverlay.style.opacity = '1';
+    playOverlay.style.visibility = 'visible';
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      renderCategory((currentIndex - 1 + categories.length) % categories.length);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      renderCategory((currentIndex + 1) % categories.length);
+    }
+  });
+
+  // Touch swipe for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  const panelContainer = document.querySelector('.panel');
+  if (panelContainer) {
+    panelContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    panelContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - go to next
+        renderCategory((currentIndex + 1) % categories.length);
+      } else {
+        // Swipe right - go to previous
+        renderCategory((currentIndex - 1 + categories.length) % categories.length);
+      }
+    }
+  }
+
+  // Initialize
+  renderCategory(0);
+  
+  // Add responsive class to body for CSS targeting if needed
+  function handleResize() {
+    if (window.innerWidth <= 768) {
+      document.body.classList.add('mobile-view');
+    } else {
+      document.body.classList.remove('mobile-view');
+    }
+  }
+  
+  window.addEventListener('resize', handleResize);
+  handleResize(); // Initial check
+</script>
 </body>
+
 </html>
